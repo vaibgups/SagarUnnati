@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SagarUnnati</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    
+    <string name="about_us_message">Maritime Transport is a critical infrastructure for the social and economic development of a country. It influences the pace, structure and pattern of development. The Department of Shipping encompasses within its fold shipping and ports sectors which include shipbuilding and ship-repair, major ports, national waterways, and inland water transport. Department of
+        Shipping has been entrusted with the responsibility to formulate policies and programmes on these subjects and their implementation.
+
+A comprehensive policy package is necessary to address the diverse issues facing the Maritime transport sector. The capacity of the ports in terms of their berths and cargo handling equipment needs to be vastly improved to cater to the growing requirements of the overseas trade. The shipping industry needs to be enabled to carry higher shares of the sea-borne trade in indigenous bottoms.
+
+Historically, investment in the transport sector, particularly in the ports, have been made by the State mainly because of the large volume of resources required, long gestation periods, uncertain returns and various externalities, both positive and negative, associated with this infrastructure. However, the galloping resource requirements and the concern for managerial efficiency and consumer responsiveness have led to the active involvement of the private sector in infrastructure services in recent times. To encourage private participation, Department of Shipping has laid down comprehensive policy guidelines for private sector participation in the Ports sector.
+</string>
+</resources>

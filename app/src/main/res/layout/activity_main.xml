@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <include layout="@layout/toolbar_default"
+        android:id="@+id/appbar_layout"></include>
+
+    <RelativeLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar_layout"/>
+
+  <!--  <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvHomeScreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewpager_banner"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                tools:listitem="@layout/content_home_screen_btn_rcv" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager_banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </androidx.viewpager.widget.ViewPager>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>-->
+
+
+</RelativeLayout>

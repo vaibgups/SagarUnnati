@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#003459</color>
+    <color name="colorPrimaryDark">#003459</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="text_color_black">#000000</color>
+    <color name="text_white_color">#ffffff</color>
+    <color name="white_color">#ffffff</color>
+
+    <color name="action_background_color">#003459</color>
+    
+    <color name="daily_vessel_position">#fd9a14</color>
+    <color name="traffic">#4da851</color>
+    <color name="commodity_wise">#ed4d49</color>
+    <color name="average_turnaround_time">#ce1249</color>
+    <color name="average_output_pser_ship">#673ab7</color>
+    <color name="annual_overseas_coastal_traffic">#06b0c5</color>
+    <color name="river_notice_least_available">#543855</color>
+    <color name="projects_under_sagarmala">#07BB9C</color>
+    <color name="sagarmala_beneficiaries">#0C2D48</color>
+    <color name="monthly_statement_of_cargo">#1e495f</color>
+
+
+</resources>
