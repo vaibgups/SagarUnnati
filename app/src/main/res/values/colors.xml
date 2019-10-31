@@ -23,4 +23,80 @@
     <color name="monthly_statement_of_cargo">#1e495f</color>
 
 
+<!--Extra color code-->
+
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextDisable">#66FFFFFF</color>
+
+    <color name="whiteColor">#fff</color>
+
+    <color name="toast_background_colot">#FF0000</color>
+
+    <color name="colorTransparent">#0000b4eb</color>
+
+
+    <color name="bottomStrip">#CACFD2</color>
+
+    <color name="homeButtonBG">#00B4EB</color>
+    <color name="CurOutStanBackGrnd">#428DFF</color>
+
+    <color name="blue_listBack">#63d6f9</color>
+    <color name="bottomTextColor">#5CA087</color>
+
+
+    <color name="listBack">#b6b9b8</color>
+    <color name="lighGrey">#F2F3F4</color>
+
+    <color name="dark_gray">#3b3b3b</color>
+    <color name="white_bg">#FFFFFF</color>
+
+    <color name="text_white">#ffffff</color>
+    <color name="textColor_white">#fff</color>
+    <color name="dark_black">#161616</color>
+    <color name="text_black">#161616</color>
+    <color name="text_black_about_png">#333</color>
+    <color name="textColorDarkGreen">#002808</color>
+    <color name="greentextColor">#006A00</color>
+
+    <color name="button_color1">#79BD13</color>  <!--laser#FFC300</color>--> <!--#EC9F00</color>--> <!--ef4444</color>-->
+    <color name="button_color2">#f4da4c</color>
+
+    <color name="gai_gas_bg_color">#e5f8fe</color>
+
+    <color name="rate_card_bg_color">#bde5f2</color>
+    <color name="bg_myaccount">#ECF7FF</color>
+    <color name="usr_detail_bg">#DDEDFF</color>
+    <color name="gail_text_color">#3C6101</color><!--#015c31-->
+    <color name="red_color">#DC143C</color>
+    <color name="orange_color">#FF6347</color>
+    <color name="light_blue">#aad1ed</color>
+    <color name="homeFrgment_bg">#C6E2FF</color>
+    <color name="bg_createGPAss">#d9edf7</color>
+    <color name="nav_bg_color">#FFEB3B</color>
+    <color name="blue_dark_bg">#1d4482</color>
+    <color name="addrow_bg_color">#5bc0de</color>
+    <color name="addrow_border_clr">#46b8da</color>
+    <color name="approver_textcolor_color">#337ab7</color>
+    <color name="deem_orange">#976b08</color>
+
+    <color name="yellow">#FFDE03</color>
+    <color name="blue">#0380B4</color>
+    <color name="light_color">#dde4e8</color>
+    <color name="light_sky">#507CD1</color>
+
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="list_color">#F8F8FF</color>
+    <color name="list1_color">#F0FFFF</color>
+
+
 </resources>

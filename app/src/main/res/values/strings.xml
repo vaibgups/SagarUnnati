@@ -3,7 +3,37 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    
+
+
+
+<!--    Button name-->
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_reg_submit">Submit</string>
+
+
+<!--    TextView  text-->
+<!--    Login-->
+    <string name="tv_login_forget_password">Forget Password!</string>
+    <string name="tv_login_register">Register</string>
+
+<!--    Register-->
+    <string name="tv_reg_name">Name</string>
+    <string name="tv_reg_email">Email</string>
+    <string name="tv_reg_phone_number">Phone Number</string>
+    <string name="tv_reg_port">Port</string>
+    <string name="tv_reg_port_name">Port Name</string>
+
+<!--    Hint Edit text-->
+
+<!--    Login-->
+    <string name="edt_login_hint_enter_email_address">Email Address</string>
+    <string name="edt_login_hint_enter_password">Enter Password</string>
+
+<!--    Register-->
+    <string name="edt_reg_hint_enter_name">Enter Name</string>
+    <string name="edt_reg_hint_enter_email">Enter Email</string>
+    <string name="edt_reg_hint_enter_phone_number">Enter Phone Number</string>
+
     
     <string name="about_us_message">Maritime Transport is a critical infrastructure for the social and economic development of a country. It influences the pace, structure and pattern of development. The Department of Shipping encompasses within its fold shipping and ports sectors which include shipbuilding and ship-repair, major ports, national waterways, and inland water transport. Department of
         Shipping has been entrusted with the responsibility to formulate policies and programmes on these subjects and their implementation.

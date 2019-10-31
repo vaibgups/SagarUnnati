@@ -21,6 +21,7 @@ import com.example.sagarunnati.fragment.HomeFragment;
 import com.example.sagarunnati.mInterface.HomeScreenButtonInterface;
 import com.example.sagarunnati.utility.ConnectivityReceiver;
 import com.example.sagarunnati.utility.CustomActionBar;
+import com.example.sagarunnati.utility.CustomDialogBoxLogin;
 import com.example.sagarunnati.utility.CustomDialogBox;
 import com.example.sagarunnati.utility.SingletonRequestQueue;
 
@@ -170,6 +171,18 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
             }
 
+            case 5: {
+
+                if (checkConnection()) {
+                    CustomDialogBoxLogin customDialogBox = new CustomDialogBoxLogin(MainActivity.this);
+                    customDialogBox.initCustomDialog();
+                }else {
+                    Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            }
+
         }
 
     }
@@ -184,4 +197,5 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                 .addToBackStack(null)
                 .commit();
     }
+
 }
