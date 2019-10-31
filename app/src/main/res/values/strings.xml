@@ -23,6 +23,27 @@
     <string name="tv_reg_port">Port</string>
     <string name="tv_reg_port_name">Port Name</string>
 
+    <string name="tv_dvp">Daily Vessel Position</string>
+    <string name="tv_dvp_s_no">Sl. No.</string>
+    <string name="tv_dvp_name_of_port">Name of Port</string>
+    <string name="tv_dvp_no_of_vessels">Number of Vessels</string>
+    <string name="tv_dvp_at_berth">At Berth ( Working Vessels and Vessels Waiting for Sailing )</string>
+    <string name="tv_dvp_at_anchorage">At Anchorage ( Waiting for Berthing )</string>
+
+
+    <string name="tv_pus_sagar_mala_program">Sagarmala Programme</string>
+    <string name="tv_pus_values">Values</string>
+    <string name="tv_pus_project_cost">Project Cost (Rs Cr.)</string>
+
+    <string name="tv_sb_sagar_mala_beneficiaries">Sagarmala Beneficiaries</string>
+    <string name="tv_sb_sagar_mala_program">Sagarmala Programme</string>
+    <string name="tv_sb_number">Number</string>
+
+    <string name="tv_traffic">Traffic</string>
+    <string name="tv_traffic_port">Ports</string>
+    <string name="tv_traffic_date">APRIL TO JULY 2019*</string>
+
+
 <!--    Hint Edit text-->
 
 <!--    Login-->

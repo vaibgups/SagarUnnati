@@ -25,6 +25,8 @@
 
 <!--Extra color code-->
 
+    <color name="table_head_back">#2078b6</color>
+    <color name="white">#ffffff</color>
     <color name="colorTextPrimary">#FFFFFF</color>
     <color name="colorTextDisable">#66FFFFFF</color>
 
