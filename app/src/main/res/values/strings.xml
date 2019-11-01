@@ -53,6 +53,17 @@
     <string name="tv_tcw_others_misc_carg">Other Misc. Carg</string>
     <string name="tv_tcw_total">TOTAL</string>
 
+    <string name="tv_att">Average Turnaround Time</string>
+    <string name="tv_att_ports">PORTS</string>
+    <string name="tv_att_period">PERIOD</string>
+    <string name="tv_att_dry_bulk">DRY BULK</string>
+    <string name="tv_att_mech">MECH.</string>
+    <string name="tv_att_conv">CONV.</string>
+    <string name="tv_att_liquid_bulk">LIQUID BULK</string>
+    <string name="tv_att_break_bulk">BREAK BULK</string>
+    <string name="tv_att_container">CONTAINER</string>
+    <string name="tv_att_total">TOTAL</string>
+
 
     <string name="tv_pus_sagar_mala_program">Sagarmala Programme</string>
     <string name="tv_pus_values">Values</string>
