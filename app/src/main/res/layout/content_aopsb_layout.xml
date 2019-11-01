@@ -26,7 +26,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/tv_att_ports"
+                android:text="@string/tv_aopsb_ports"
                 android:textSize="10sp"
                 />
 
@@ -42,7 +42,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/tv_att_period"
+                android:text="@string/tv_aopsb_period"
                 android:textSize="10sp"
                 android:gravity="center" />
 
@@ -69,7 +69,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:text="@string/tv_att_mech"
+                        android:text="@string/tv_aopsb_mech"
                         android:textSize="8sp"
                         android:gravity="center" />
 
@@ -84,7 +84,7 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:text="@string/tv_att_conv"
+                        android:text="@string/tv_aopsb_conv"
                         android:textSize="8sp"
                         android:gravity="center" />
 
@@ -102,7 +102,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/tv_att_liquid_bulk"
+                android:text="@string/tv_aopsb_liquid_bulk"
                 android:textSize="10sp"
                 android:gravity="center" />
 
@@ -117,7 +117,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/tv_att_break_bulk"
+                android:text="@string/tv_aopsb_break_bulk"
                 android:textSize="10sp"
                 android:gravity="center" />
 
@@ -239,7 +239,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/tv_att_total"
+                android:text="@string/tv_aopsb_total"
                 android:textSize="10sp"
                 android:gravity="center" />
 

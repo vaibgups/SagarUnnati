@@ -64,6 +64,38 @@
     <string name="tv_att_container">CONTAINER</string>
     <string name="tv_att_total">TOTAL</string>
 
+    <string name="tv_aopsb">Average Turnaround Time</string>
+    <string name="tv_aopsb_ports">PORTS</string>
+    <string name="tv_aopsb_period">PERIOD</string>
+    <string name="tv_aopsb_dry_bulk">DRY BULK</string>
+    <string name="tv_aopsb_mech">MECH.</string>
+    <string name="tv_aopsb_conv">CONV.</string>
+    <string name="tv_aopsb_liquid_bulk">LIQUID BULK</string>
+    <string name="tv_aopsb_break_bulk">BREAK BULK</string>
+    <string name="tv_aopsb_container">CONTAINER</string>
+    <string name="tv_aopsb_total">TOTAL</string>
+
+    <string name="tv_aoct">Annual Overseas &amp; Coastal Traffic</string>
+    <string name="tv_aoct_ports">PORTS</string>
+    <string name="tv_aoct_period">PERIOD</string>
+    <string name="tv_aoct_overseas">OVERSEAS</string>
+    <string name="tv_aoct_overseas_unloaded">Unloaded</string>
+    <string name="tv_aoct_overseas_loaded">Loaded</string>
+    <string name="tv_aoct_overseas_transhipment">Transhipment</string>
+    <string name="tv_aoct_overseas_total">Total</string>
+    <string name="tv_aoct_coastal">COASTAL</string>
+    <string name="tv_aoct_coastal_unloaded">Unloaded</string>
+    <string name="tv_aoct_coastal_loaded">Loaded</string>
+    <string name="tv_aoct_coastal_transhipment">Transhipment</string>
+    <string name="tv_aoct_coastal_total">Total</string>
+    <string name="tv_aoct_total">Total</string>
+    <string name="tv_aoct_total_unloaded">Unloaded</string>
+    <string name="tv_aoct_total_loaded">Loaded</string>
+    <string name="tv_aoct_total_transhipment">Transhipment</string>
+    <string name="tv_aoct_total_total">Total</string>
+
+
+
 
     <string name="tv_pus_sagar_mala_program">Sagarmala Programme</string>
     <string name="tv_pus_values">Values</string>
