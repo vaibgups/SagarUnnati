@@ -30,6 +30,29 @@
     <string name="tv_dvp_at_berth">At Berth ( Working Vessels and Vessels Waiting for Sailing )</string>
     <string name="tv_dvp_at_anchorage">At Anchorage ( Waiting for Berthing )</string>
 
+    <string name="tv_traffic">Traffic</string>
+    <string name="tv_traffic_port">Ports</string>
+    <string name="tv_traffic_date">APRIL TO JULY 2019*</string>
+
+
+    <string name="tv_tcw">Traffic - Commodity Wise</string>
+    <string name="tv_tcw_ports">PORTS</string>
+    <string name="tv_tcw_period">PERIOD</string>
+    <string name="tv_tcw_pol">P.O.L.(Crude, Prod., LPG/LNG)</string>
+    <string name="tv_tcw_other_liquid">Other Liquids</string>
+    <string name="tv_tcw_iron_ore">Iron Ore Incl. Pellets</string>
+    <string name="tv_tcw_fertilizers">Fertilizers</string>
+    <string name="tv_tcw_fin">FIN</string>
+    <string name="tv_tcw_raw">RAW</string>
+    <string name="tv_tcw_coal">Coal</string>
+    <string name="tv_tcw_thermal_steam">Thermal &amp; Steam</string>
+    <string name="tv_tcw_coking_others">Coking &amp; Others</string>
+    <string name="tv_tcw_containers">Containers</string>
+    <string name="tv_tcw_tonnage">Tonnage</string>
+    <string name="tv_tcw_teus">TEUs</string>
+    <string name="tv_tcw_others_misc_carg">Other Misc. Carg</string>
+    <string name="tv_tcw_total">TOTAL</string>
+
 
     <string name="tv_pus_sagar_mala_program">Sagarmala Programme</string>
     <string name="tv_pus_values">Values</string>
@@ -39,9 +62,7 @@
     <string name="tv_sb_sagar_mala_program">Sagarmala Programme</string>
     <string name="tv_sb_number">Number</string>
 
-    <string name="tv_traffic">Traffic</string>
-    <string name="tv_traffic_port">Ports</string>
-    <string name="tv_traffic_date">APRIL TO JULY 2019*</string>
+
 
 
 <!--    Hint Edit text-->
