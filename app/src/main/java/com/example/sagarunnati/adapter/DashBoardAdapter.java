@@ -109,11 +109,8 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
 
         @Override
         public void onClick(View view) {
-            if (ConnectivityReceiver.isConnected()) {
-                context.startActivity(new Intent(context, DashBoardClickUrlActivity.class));
-            }else {
-                Toast.makeText(context, "Please check your internet connection", Toast.LENGTH_SHORT).show();
-            }
+            context.startActivity(new Intent(context, DashBoardClickUrlActivity.class)
+                    .putExtra("FragmentLoad",getAdapterPosition()+1));
         }
     }
 }
