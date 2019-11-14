@@ -18,7 +18,7 @@ public class SingletonRequestQueue {
 
     public static synchronized SingletonRequestQueue getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new SingletonRequestQueue(context);
+            mInstance = new SingletonRequestQueue(context.getApplicationContext());
         }
         return mInstance;
     }

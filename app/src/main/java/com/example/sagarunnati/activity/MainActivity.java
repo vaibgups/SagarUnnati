@@ -2,7 +2,6 @@ package com.example.sagarunnati.activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -23,16 +22,14 @@ import com.example.sagarunnati.utility.ConnectivityReceiver;
 import com.example.sagarunnati.utility.CustomActionBar;
 import com.example.sagarunnati.utility.CustomDialogBoxLogin;
 import com.example.sagarunnati.utility.CustomDialogBox;
-import com.example.sagarunnati.utility.SingletonRequestQueue;
+import com.example.sagarunnati.utility.Logger;
 
-public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener,
-        View.OnClickListener, HomeScreenButtonInterface {
+public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener, HomeScreenButtonInterface {
 
-    private static final String TAG = MyApplication.TAG + MainActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private RelativeLayout fragmentContainer;
 
-    private SingletonRequestQueue singletonRequestQueue;
     private CustomActionBar customActionBar;
 
     private Fragment fragment;
@@ -42,20 +39,24 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
     private boolean isNetworkConnected = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkConnection();
+        Logger.v(TAG,"Logger Test");
         init();
+
 
 
     }
 
+
+
     private boolean checkConnection() {
         isNetworkConnected = ConnectivityReceiver.isConnected();
-
-        Log.d(TAG, "checkConnection() returned: " + isNetworkConnected);
+        Logger.d(TAG, ""+isNetworkConnected);
         return isNetworkConnected;
 
     }
@@ -78,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     protected void onResume() {
         super.onResume();
         MyApplication.getMyApplicationInstance().setConnectivityListener(this);
-        singletonRequestQueue = MyApplication.getMyApplicationInstance().getSingletonRequestQueue();
     }
 
     @Override
@@ -97,10 +97,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         Log.d(TAG, "onNetworkConnectionChanged() returned: " + isNetworkConnected);
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 
     @Override
     public void onBackPressed() {

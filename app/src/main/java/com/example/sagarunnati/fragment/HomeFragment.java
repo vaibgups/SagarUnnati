@@ -16,19 +16,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
 
 import com.example.sagarunnati.adapter.HomeButtonAdapter;
 import com.example.sagarunnati.adapter.ImageAdapter;
 import com.example.sagarunnati.appliaction.MyApplication;
 import com.example.sagarunnati.utility.EqualSpacingItemDecoration;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.VolleyService;
 import com.rd.PageIndicatorView;
+
+import static com.example.sagarunnati.utility.Api.BASE_URL;
+import static com.example.sagarunnati.utility.Api.GALLERY;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements VolleyService.InterfaceVolleyResult {
 
     private final String TAG = MyApplication.TAG + HomeFragment.class.getSimpleName();
 
@@ -45,6 +51,8 @@ public class HomeFragment extends Fragment {
     private Handler handler;
     private int page = 0;
     private int delay = 5000; //milliseconds
+
+    private VolleyService volleyService;
 
     Runnable runnable = new Runnable() {
         public void run() {
@@ -67,8 +75,10 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        context = getActivity();
+        context = getContext();
         init();
+        getGalleryImages();
+
         return view;
     }
 
@@ -110,6 +120,12 @@ public class HomeFragment extends Fragment {
         });
     }
 
+
+    private void getGalleryImages() {
+        volleyService = new VolleyService(HomeFragment.this, context);
+        volleyService.getDataJsonGetRequest(GALLERY, BASE_URL + GALLERY);
+    }
+
     private void setRecyclerViewParam(RecyclerView recyclerView) {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
@@ -126,6 +142,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+//        getGalleryImages();
         handler.postDelayed(runnable, delay);
     }
 
@@ -142,8 +159,13 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void notifySuccess(String requestType, String response) {
+        Logger.e(requestType,response.toString());
+    }
 
-
-
-
+    @Override
+    public void notifyError(String requestType, VolleyError error) {
+//        Logger.e(requestType,error.getMessage());
+    }
 }

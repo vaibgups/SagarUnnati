@@ -23,7 +23,7 @@ public class HomeButtonAdapter extends RecyclerView.Adapter<HomeButtonAdapter.Vi
     private HomeScreenButtonInterface homeScreenButtonInterface;
     private ArrayList<String> homeScreenButtonText = new ArrayList<String>();
     private int [] drawableImageID = new int[]{R.drawable.about_512_512,R.drawable.gallery_500_500,R.drawable.publication_512_512,
-    R.drawable.contact_us_512_512, R.drawable.ic_radio_button_checked_black_24dp, R.drawable.ic_radio_button_checked_black_24dp};
+    R.drawable.contact_us_512_512, R.drawable.ic_dashboard_black_24dp, R.drawable.ic_login_outline_black_24dp};
 
     public HomeButtonAdapter(Context context) {
         this.context = context;
@@ -33,7 +33,7 @@ public class HomeButtonAdapter extends RecyclerView.Adapter<HomeButtonAdapter.Vi
         homeScreenButtonText.add("Gallery");
         homeScreenButtonText.add("Publications");
         homeScreenButtonText.add("Contact Us");
-        homeScreenButtonText.add("Dashboard");
+        homeScreenButtonText.add("Performance");
         homeScreenButtonText.add("Login");
 
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+<!--    <base-config cleartextTrafficPermitted="true" />-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://ajay-pc/sagarunnati/api/mobile_services/front_service/</domain>
+    </domain-config>
+
+  <!--  <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://seismo.gov.in/MIS/api/mobile_service/</domain>
+    </domain-config>-->
+</network-security-config>

@@ -5,18 +5,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+    <string name="test">hishfioadfihsiodfhokc ajdoajdojaosdas123IKCKDN12KDC JDASDZKDNKNDKNAKKDVKDSVKDSNVK 21B3KJ12KJBKJBVKJDSNJSNSD KSJNSDNCNFSKDn1`2k123kn sknclksdnk Final string complete</string>
 
-<!--    Button name-->
+
+    <!--    Button name-->
     <string name="btn_log_in">Log In</string>
     <string name="btn_reg_submit">Submit</string>
 
 
-<!--    TextView  text-->
-<!--    Login-->
+    <!--    TextView  text-->
+    <!--    Login-->
     <string name="tv_login_forget_password">Forget Password!</string>
     <string name="tv_login_register">Register</string>
 
-<!--    Register-->
+    <!--    Register-->
     <string name="tv_reg_name">Name</string>
     <string name="tv_reg_email">Email</string>
     <string name="tv_reg_phone_number">Phone Number</string>
@@ -95,8 +97,6 @@
     <string name="tv_aoct_total_total">Total</string>
 
 
-
-
     <string name="tv_pus_sagar_mala_program">Sagarmala Programme</string>
     <string name="tv_pus_values">Values</string>
     <string name="tv_pus_project_cost">Project Cost (Rs Cr.)</string>
@@ -106,20 +106,18 @@
     <string name="tv_sb_number">Number</string>
 
 
+    <!--    Hint Edit text-->
 
-
-<!--    Hint Edit text-->
-
-<!--    Login-->
+    <!--    Login-->
     <string name="edt_login_hint_enter_email_address">Email Address</string>
     <string name="edt_login_hint_enter_password">Enter Password</string>
 
-<!--    Register-->
+    <!--    Register-->
     <string name="edt_reg_hint_enter_name">Enter Name</string>
     <string name="edt_reg_hint_enter_email">Enter Email</string>
     <string name="edt_reg_hint_enter_phone_number">Enter Phone Number</string>
 
-    
+
     <string name="about_us_message">Maritime Transport is a critical infrastructure for the social and economic development of a country. It influences the pace, structure and pattern of development. The Department of Shipping encompasses within its fold shipping and ports sectors which include shipbuilding and ship-repair, major ports, national waterways, and inland water transport. Department of
         Shipping has been entrusted with the responsibility to formulate policies and programmes on these subjects and their implementation.
 
@@ -127,4 +125,28 @@ A comprehensive policy package is necessary to address the diverse issues facing
 
 Historically, investment in the transport sector, particularly in the ports, have been made by the State mainly because of the large volume of resources required, long gestation periods, uncertain returns and various externalities, both positive and negative, associated with this infrastructure. However, the galloping resource requirements and the concern for managerial efficiency and consumer responsiveness have led to the active involvement of the private sector in infrastructure services in recent times. To encourage private participation, Department of Shipping has laid down comprehensive policy guidelines for private sector participation in the Ports sector.
 </string>
+
+
+    <string name="filter">Filter</string>
+    <string-array name="spinner_year">
+        <item>2015-16</item>
+        <item>2016-17</item>
+        <item>2017-18</item>
+        <item>2018-19</item>
+        <item>2019-20</item>
+    </string-array>
+    <string-array name="spinner_month">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
 </resources>

@@ -16,12 +16,13 @@
                 android:layout_width="match_parent"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:layout_height="60dp">
+                android:layout_height="wrap_content"
+                android:minHeight="50dp">
 
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -38,7 +39,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
@@ -66,12 +67,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_overseas_unloaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -81,12 +82,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_overseas_loaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -96,12 +97,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_overseas_transhipment"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -111,14 +112,14 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_overseas_total"
-                            android:textSize="8sp"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:textSize="10sp"
+                            android:gravity="center"
+                            />
 
                     </LinearLayout>
 
@@ -146,12 +147,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_coastal_unloaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -161,12 +162,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_coastal_loaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -176,12 +177,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_coastal_transhipment"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -191,12 +192,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_coastal_total"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -224,12 +225,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_total_unloaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -239,12 +240,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_total_loaded"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -254,12 +255,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_total_transhipment"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                         <View
@@ -269,12 +270,12 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="@string/tv_aoct_total_total"
-                            android:textSize="8sp"
+                            android:textSize="10sp"
                             android:gravity="center" />
 
                     </LinearLayout>
