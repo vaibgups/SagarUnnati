@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.ContactUsFragment">
 
-    <WebView
-        android:id="@+id/webViewContactUs"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
-</FrameLayout>
+    <include layout="@layout/default_below_tool_bar_layout"
+        android:id="@+id/defaultToolBarBelowLayout"/>
+
+    <TextView
+        android:id="@+id/tvContactUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/defaultToolBarBelowLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Contact Us"
+        android:textColor="@color/text_color_black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlAboutUsMessageParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvContactUs"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp">
+
+        <com.example.sagarunnati.utility.JustifiedTextView
+            android:id="@+id/tvContactUsText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=" "
+            android:layout_gravity="center"
+            android:textColor="@color/text_color_black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

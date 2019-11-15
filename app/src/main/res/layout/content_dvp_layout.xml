@@ -1,175 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-   <!-- <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:background="@color/white"
         android:orientation="horizontal"
         android:layout_height="40dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/tv_dvp_s_no"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:gravity="center" />
 
 
-        <LinearLayout
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:background="@color/black_overlay"/>
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:text="@string/tv_pus_values"
-            android:textSize="10sp"
-            android:gravity="center"/>
-
-        <LinearLayout
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="@color/black_overlay" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:text="@string/tv_pus_project_cost"
-            android:textSize="10sp"
-            android:gravity="center" />
-
-        <LinearLayout
+        <View
             android:layout_width="1px"
             android:layout_height="match_parent"
             android:background="@color/black_overlay" />
 
+
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:text="@string/tv_pus_project_cost"
-            android:textSize="10sp"
+            android:text="@string/tv_dvp_name_of_port"
+            android:textSize="12sp"
             android:gravity="center" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay" />
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_dvp_at_berth"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_overlay" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/tv_dvp_at_anchorage"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+        </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/black_overlay" />
--->
-
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/tv_dvp_s_no"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                android:gravity="center" />
-
-
-            <LinearLayout
-                android:layout_width="1px"
-                android:layout_height="match_parent"
-                android:background="@color/black_overlay"/>
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/tv_dvp_name_of_port"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                android:gravity="center"/>
-
-            <LinearLayout
-                android:layout_width="1px"
-                android:layout_height="match_parent"
-                android:background="@color/black_overlay" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="2">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/tv_dvp_at_berth"
-                        android:textSize="8sp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
-
-                    <LinearLayout
-                        android:layout_width="1px"
-                        android:layout_height="match_parent"
-                        android:background="@color/black_overlay" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/tv_dvp_at_anchorage"
-                        android:textSize="8sp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/black_overlay" />
-
-
-
 
 
 </LinearLayout>

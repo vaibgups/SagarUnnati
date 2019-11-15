@@ -36,9 +36,9 @@
       <com.example.sagarunnati.utility.JustifiedTextView
           android:id="@+id/tvAboutUsMessage"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
+          android:layout_height="match_parent"
+          android:text=" "
           android:layout_gravity="center"
-          android:text="@string/about_us_message"
           android:textColor="@color/text_color_black"
           android:textSize="12sp" />
    </RelativeLayout>

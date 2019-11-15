@@ -126,7 +126,12 @@ A comprehensive policy package is necessary to address the diverse issues facing
 Historically, investment in the transport sector, particularly in the ports, have been made by the State mainly because of the large volume of resources required, long gestation periods, uncertain returns and various externalities, both positive and negative, associated with this infrastructure. However, the galloping resource requirements and the concern for managerial efficiency and consumer responsiveness have led to the active involvement of the private sector in infrastructure services in recent times. To encourage private participation, Department of Shipping has laid down comprehensive policy guidelines for private sector participation in the Ports sector.
 </string>
 
-
+<string name="contact_us_message">Shri Ashok Kumar Vidyarthi, \n
+    Room No 15 C- Wing, Shastri Bhavan, \n
+    New Delhi-110001 \n
+    Email: <a href="mailto:ak.vidyarthi@nic.in">ak.vidyarthi@nic.in</a> \n
+    Telephone No: 011-23384072"
+</string>
     <string name="filter">Filter</string>
     <string-array name="spinner_year">
         <item>2015-16</item>

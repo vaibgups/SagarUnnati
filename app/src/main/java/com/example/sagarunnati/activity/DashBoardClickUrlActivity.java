@@ -69,7 +69,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements Spin
                 break;
             }
             case 4:{
-                fragment = new AnnOverAndCoastTrafficFragment();
+                fragment = new AvgTurnaroundTimeFragment();
                 fragmentLoad(fragment);
                 break;
             }
@@ -99,7 +99,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements Spin
                 break;
             }
             case 10:{
-                fragment = new AvgTurnaroundTimeFragment();
+                fragment = new AnnOverAndCoastTrafficFragment();
                 fragmentLoad(fragment);
                 break;
             }
@@ -132,7 +132,6 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements Spin
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up,R.anim.slide_out_up, R.anim.slide_in_up);
         fragmentTransaction.replace(R.id.flDashBoardContainer, fragment, fragment.getClass().getSimpleName())
-                .addToBackStack(null)
                 .commit();
     }
 }

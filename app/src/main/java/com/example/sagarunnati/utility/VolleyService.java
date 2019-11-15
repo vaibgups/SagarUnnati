@@ -38,7 +38,7 @@ public class VolleyService {
             progressDialog.dismiss();
             if (error instanceof NetworkError) {
                 Logger.e(requestType,error.getMessage());
-                Toast.makeText(mContext, "No network available", Toast.LENGTH_LONG).show();
+//                Toast.makeText(mContext, "No network available", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(mContext, error.toString(), Toast.LENGTH_LONG).show();
             }

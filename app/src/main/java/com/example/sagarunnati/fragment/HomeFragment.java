@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,6 +70,12 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = getContext();
+        getGalleryImages();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,10 +84,12 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
         view = inflater.inflate(R.layout.fragment_home, container, false);
         context = getContext();
         init();
-        getGalleryImages();
+
 
         return view;
     }
+
+
 
     private void init() {
 
@@ -123,7 +132,7 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
 
     private void getGalleryImages() {
         volleyService = new VolleyService(HomeFragment.this, context);
-        volleyService.getDataJsonGetRequest(GALLERY, BASE_URL + GALLERY);
+        volleyService.postStringRequestWithParam(GALLERY, BASE_URL + GALLERY,null);
     }
 
     private void setRecyclerViewParam(RecyclerView recyclerView) {
@@ -142,7 +151,6 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
     @Override
     public void onResume() {
         super.onResume();
-//        getGalleryImages();
         handler.postDelayed(runnable, delay);
     }
 
@@ -161,11 +169,11 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
 
     @Override
     public void notifySuccess(String requestType, String response) {
-        Logger.e(requestType,response.toString());
+        Logger.v(requestType,response.toString());
     }
 
     @Override
     public void notifyError(String requestType, VolleyError error) {
-//        Logger.e(requestType,error.getMessage());
+        Logger.e(requestType,error.getMessage());
     }
 }
