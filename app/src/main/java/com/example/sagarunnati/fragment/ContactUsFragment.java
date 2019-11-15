@@ -38,7 +38,6 @@ public class ContactUsFragment extends Fragment implements VolleyService.Interfa
 
     private View view;
     private Context context;
-    private WebView webViewContactUs;
     private JustifiedTextView tvMyJustifyContactUsText;
     private VolleyService volleyService;
 
@@ -47,17 +46,14 @@ public class ContactUsFragment extends Fragment implements VolleyService.Interfa
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_contact_us, container, false);
         context  = getContext();
         init();
         getContactUsContent();
-//        loadUrl();
         return view;
     }
 
     private void init() {
-//        webViewContactUs = view.findViewById(R.id.webViewContactUs);
         tvMyJustifyContactUsText = view.findViewById(R.id.tvContactUsText);
     }
 

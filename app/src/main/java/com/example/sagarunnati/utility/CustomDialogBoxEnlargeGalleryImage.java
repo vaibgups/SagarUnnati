@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.sagarunnati.R;
+import com.squareup.picasso.Picasso;
 
 public class CustomDialogBoxEnlargeGalleryImage implements View.OnClickListener {
     private Context context;
@@ -18,12 +19,14 @@ public class CustomDialogBoxEnlargeGalleryImage implements View.OnClickListener 
         this.context = context;
     }
 
-    public void initCustomDialog(int id){
+    public void initCustomDialog(String imageUrl){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.default_custom_image_view);
         ivCancelImage = dialog.findViewById(R.id.ivCancelImage);
         ivGalleryImageEnlarge = dialog.findViewById(R.id.ivGalleryImageEnlarge);
-        ivGalleryImageEnlarge.setImageResource(id);
+        Picasso.get().load(imageUrl).into(ivGalleryImageEnlarge);
+//        ivGalleryImageEnlarge.setImageResource(imageUrl);
+//        ivGalleryImageEnlarge.setImageResource(id);
 //        btnCstDigDecline = dialog.findViewById(R.id.btnCstDigDecline);
 //        btnCstDigDecline.setOnClickListener(this);
 //        btnCstDigAccept = dialog.findViewById(R.id.btnCstDigAccept);

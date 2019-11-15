@@ -11,17 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sagarunnati.R;
 
+import com.example.sagarunnati.model.gallery.GalleryResponse;
 import com.example.sagarunnati.utility.CustomDialogBoxEnlargeGalleryImage;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
     private Context context;
+    private List<GalleryResponse> galleryResponseList;
+    private GalleryResponse galleryResponse;
     private int[] galleryImageArray = new int[]{R.drawable.gallery_1, R.drawable.gallery_2, R.drawable.gallery_3};
     private CustomDialogBoxEnlargeGalleryImage customDialogBoxEnlargeGalleryImage;
 
-    public GalleryAdapter(Context context) {
+
+
+    public GalleryAdapter(Context context, List<GalleryResponse> galleryResponseList) {
         this.context = context;
+        this.galleryResponseList = galleryResponseList;
         customDialogBoxEnlargeGalleryImage = new CustomDialogBoxEnlargeGalleryImage(context);
     }
 
@@ -40,7 +49,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return galleryImageArray.length;
+        return galleryResponseList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -52,30 +61,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    customDialogBoxEnlargeGalleryImage.initCustomDialog(galleryImageArray[getAdapterPosition()]);
-
-//                    context.startActivity(new Intent(context, ExpandedImageActivity.class));
-
-//                    Intent intent = new Intent();
-//                    intent.setAction(Intent.ACTION_VIEW);
-//                    Uri path = Uri.parse("android.resource://com.example.sagarunnati/" + R.drawable.gallery_1);
-//                    intent.setDataAndType(path, "image/*");
-//                    String imageUri = "drawable://" + galleryImageArray[getAdapterPosition()];
-//                    Uri path = Uri.parse("android.resource://com.example.sagarunnati/" + galleryImageArray[getAdapterPosition()]);
-//                    Uri path = Uri.parse("android.resource://com.example.sagarunnati/drawable/" + galleryImageArray[getAdapterPosition()]);
-//                    File file = new File(path.toString());
-//                    if (file.exists()){
-//                        intent.setDataAndType(Uri.fromFile(file), "image/*");
-//                    }
-//                    Bitmap b = BitmapFactory.decodeResource( context.getResources() , galleryImageArray[getAdapterPosition()] );
-//                    Intent.createChooser(intent, "View using");
-//                    context.startActivity(Intent.createChooser(intent, "View using"));
+                    GalleryResponse galleryResponse = galleryResponseList.get(getAdapterPosition());
+                    customDialogBoxEnlargeGalleryImage.initCustomDialog(galleryResponse.getImgPath());
                 }
             });
         }
 
         public void setWidgetValue(int position) {
-           ivCntAdpFrgGallery.setImageResource(galleryImageArray[position]);
+            galleryResponse = galleryResponseList.get(position);
+            Picasso.get().load(galleryResponse.getImgPath()).into(ivCntAdpFrgGallery);
         }
 
 

@@ -13,15 +13,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.DashBoardAdapter;
 import com.example.sagarunnati.appliaction.MyApplication;
+import com.example.sagarunnati.model.performance.PerformanceResponse;
 import com.example.sagarunnati.utility.EqualSpacingItemDecoration;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.VolleyService;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import static com.example.sagarunnati.utility.Api.BASE_URL;
+import static com.example.sagarunnati.utility.Api.DASHBOARD_DATA;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashBoardFragment extends Fragment {
+public class DashBoardFragment extends Fragment implements VolleyService.InterfaceVolleyResult {
     private final String TAG = MyApplication.TAG + this.getClass().getSimpleName();
     private View view;
     private Context context;
@@ -31,30 +45,24 @@ public class DashBoardFragment extends Fragment {
     private DashBoardAdapter dashBoardAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private EqualSpacingItemDecoration equalSpacingItemDecoration;
-    
-    public DashBoardFragment() {
-        // Required empty public constructor
-    }
-
+    private VolleyService volleyService;
+    private List<PerformanceResponse> responseList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dash_board, container, false);
         context = getContext();
         init();
+        getDashboardData();
         return view;
     }
 
     private void init() {
         recyclerView = view.findViewById(R.id.rvDashBoardDetails);
         setRecyclerViewParam(recyclerView);
-        dashBoardAdapter = new DashBoardAdapter(context);
         equalSpacingItemDecoration = new EqualSpacingItemDecoration(20);
         recyclerView.addItemDecoration(equalSpacingItemDecoration);
-        recyclerView.setAdapter(dashBoardAdapter);
-
 
     }
 
@@ -67,4 +75,31 @@ public class DashBoardFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
     }
 
+    private void getDashboardData() {
+        volleyService = new VolleyService(DashBoardFragment.this, context);
+        volleyService.postStringRequestWithParam(DASHBOARD_DATA, BASE_URL + DASHBOARD_DATA, null);
+    }
+
+    @Override
+    public void notifySuccess(String requestType, String response) {
+        Logger.v(requestType, response.toString());
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            String userJson = jsonObject.getString("dashboard_data");
+
+            Type performanceListType = new TypeToken<List<PerformanceResponse>>(){}.getType();
+            responseList = volleyService.getGson().fromJson(userJson, performanceListType);
+            Logger.v(requestType, ""+responseList.size());
+            dashBoardAdapter = new DashBoardAdapter(getContext(),responseList);
+            recyclerView.setAdapter(dashBoardAdapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void notifyError(String requestType, VolleyError error) {
+        Logger.e(requestType, error.getMessage());
+    }
 }

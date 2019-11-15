@@ -41,19 +41,30 @@
         <RelativeLayout
             android:id="@+id/rlDashBoardDetail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_marginTop="22dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_alignParentTop="true">
 
+            <TextView
+                android:id="@+id/tvDashbordHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Daily Vessel Position"
+                android:textColor="@color/text_white_color"
+                android:textSize="14sp"
+                android:textAlignment="textEnd"/>
+
             <LinearLayout
+                android:visibility="invisible"
                 android:id="@+id/llSub1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDashbordHead"
+                android:layout_above="@+id/llSub2"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -76,12 +87,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="invisible"
                 android:id="@+id/llSub2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llSub1"
+                android:layout_above="@+id/tvDashbordSubHead3"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -103,16 +115,27 @@
                     android:textColor="@color/text_white_color"
                     android:textSize="13sp" />
 
+
+
             </LinearLayout>
 
+
+
             <TextView
-                android:id="@+id/tvDashbordHead"
+                android:visibility="invisible"
+                android:id="@+id/tvDashbordSubHead3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="93"
                 android:layout_alignParentRight="true"
-                android:text="Daily Vessel Position"
+                android:layout_alignParentBottom="true"
                 android:textColor="@color/text_white_color"
-                android:textSize="14sp" />
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="10dp"
+
+                />
 
 
         </RelativeLayout>

@@ -66,25 +66,14 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
             handler.postDelayed(this, delay);
         }
     };
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        context = getContext();
-        getGalleryImages();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
         context = getContext();
         init();
-
+//        getGalleryImages();
 
         return view;
     }
@@ -130,10 +119,10 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
     }
 
 
-    private void getGalleryImages() {
+   /* private void getGalleryImages() {
         volleyService = new VolleyService(HomeFragment.this, context);
         volleyService.postStringRequestWithParam(GALLERY, BASE_URL + GALLERY,null);
-    }
+    }*/
 
     private void setRecyclerViewParam(RecyclerView recyclerView) {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();

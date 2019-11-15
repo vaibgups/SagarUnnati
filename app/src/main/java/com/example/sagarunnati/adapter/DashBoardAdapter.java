@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,15 +22,20 @@ import com.example.sagarunnati.R;
 import com.example.sagarunnati.activity.DashBoardClickUrlActivity;
 import com.example.sagarunnati.appliaction.MyApplication;
 import com.example.sagarunnati.mInterface.HomeScreenButtonInterface;
+import com.example.sagarunnati.model.performance.PerformanceResponse;
 import com.example.sagarunnati.utility.ConnectivityReceiver;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.ViewHolder> {
 
     private final String TAG = MyApplication.TAG + DashBoardAdapter.class.getSimpleName();
 
     private Context context;
+    private List<PerformanceResponse> responseList;
+    private PerformanceResponse performanceResponseDataItem;
+
 
     private HomeScreenButtonInterface homeScreenButtonInterface;
 
@@ -46,10 +52,15 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
 
     private ArrayList<Color> colorArrayList = new ArrayList<>();
 
-    public DashBoardAdapter(Context context) {
+   /* public DashBoardAdapter(Context context) {
         this.context = context;
 //        homeScreenButtonInterface = (HomeScreenButtonInterface) context;
 //        colorArrayList.add(Color)
+    }*/
+
+    public DashBoardAdapter(Context context, List<PerformanceResponse> responseList) {
+        this.context = context;
+        this.responseList = responseList;
     }
 
     @NonNull
@@ -68,7 +79,8 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
 
     @Override
     public int getItemCount() {
-        return drawableImageArray.length;
+//        return drawableImageArray.length;
+        return responseList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -76,16 +88,26 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
         private RelativeLayout rlDashBoardDetailSubParent;
         private CardView cvDashBoardBackGround;
         private ImageView ivDashBoardIcon;
+        private TextView tvDashbordHead, tvDashbordSubHead1, tvDashbordSubHead1_1,
+                tvDashbordSubHead2, tvDashbordSubHead2_1, tvDashbordSubHead3;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rlDashBoardDetailSubParent = itemView.findViewById(R.id.rlDashBoardDetailSubParent);
             cvDashBoardBackGround = itemView.findViewById(R.id.cvDashBoardBackGround);
             ivDashBoardIcon = itemView.findViewById(R.id.ivDashBoardIcon);
+            tvDashbordHead = itemView.findViewById(R.id.tvDashbordHead);
+            tvDashbordSubHead1 = itemView.findViewById(R.id.tvDashbordSubHead1);
+            tvDashbordSubHead1_1 = itemView.findViewById(R.id.tvDashbordSubHead1_1);
+            tvDashbordSubHead2 = itemView.findViewById(R.id.tvDashbordSubHead2);
+            tvDashbordSubHead2_1 = itemView.findViewById(R.id.tvDashbordSubHead2_1);
+            tvDashbordSubHead3 = itemView.findViewById(R.id.tvDashbordSubHead3);
             itemView.setOnClickListener(this);
         }
 
         public void setWidgetValue(int position) {
+            performanceResponseDataItem = responseList.get(position);
+            tvDashbordHead.setText(performanceResponseDataItem.getTitle());
             if (position == 4 || position == 5) {
                 final float inPixels = context.getResources().getDimension(R.dimen.dashboard_image_icon_size);
                 ViewGroup.LayoutParams params = ivDashBoardIcon.getLayoutParams();
