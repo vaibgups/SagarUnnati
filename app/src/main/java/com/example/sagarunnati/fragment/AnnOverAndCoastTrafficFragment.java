@@ -1,15 +1,18 @@
 package com.example.sagarunnati.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.sagarunnati.R;
+import com.example.sagarunnati.adapter.AnnOverAndCoastalTrafficFrgAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,16 +20,26 @@ import com.example.sagarunnati.R;
 public class AnnOverAndCoastTrafficFragment extends Fragment {
 
 
-    public AnnOverAndCoastTrafficFragment() {
-        // Required empty public constructor
-    }
-
+    private View view;
+    private Context context;
+    private RecyclerView rvAOCTFrg;
+    private AnnOverAndCoastalTrafficFrgAdapter annOverAndCoastalTrafficFrgAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ann_over_and_coast_traffic, container, false);
+        context = getContext();
+        view = inflater.inflate(R.layout.fragment_ann_over_and_coast_traffic, container, false);
+        init();
+        return view;
+    }
+    private void init() {
+        rvAOCTFrg = view.findViewById(R.id.rvAOCTFrg);
+        rvAOCTFrg.setHasFixedSize(true);
+        rvAOCTFrg.setLayoutManager(new LinearLayoutManager(context));
+        annOverAndCoastalTrafficFrgAdapter = new AnnOverAndCoastalTrafficFrgAdapter(context);
+        rvAOCTFrg.setAdapter(annOverAndCoastalTrafficFrgAdapter);
+
     }
 
 }

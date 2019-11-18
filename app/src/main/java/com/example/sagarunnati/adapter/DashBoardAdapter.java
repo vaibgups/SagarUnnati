@@ -52,12 +52,12 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
 
     private ArrayList<Color> colorArrayList = new ArrayList<>();
 
-   /* public DashBoardAdapter(Context context) {
+ /*   public DashBoardAdapter(Context context) {
         this.context = context;
 //        homeScreenButtonInterface = (HomeScreenButtonInterface) context;
 //        colorArrayList.add(Color)
-    }*/
-
+    }
+*/
     public DashBoardAdapter(Context context, List<PerformanceResponse> responseList) {
         this.context = context;
         this.responseList = responseList;
@@ -98,9 +98,9 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
             ivDashBoardIcon = itemView.findViewById(R.id.ivDashBoardIcon);
             tvDashbordHead = itemView.findViewById(R.id.tvDashbordHead);
             tvDashbordSubHead1 = itemView.findViewById(R.id.tvDashbordSubHead1);
-            tvDashbordSubHead1_1 = itemView.findViewById(R.id.tvDashbordSubHead1_1);
+//            tvDashbordSubHead1_1 = itemView.findViewById(R.id.tvDashbordSubHead1_1);
             tvDashbordSubHead2 = itemView.findViewById(R.id.tvDashbordSubHead2);
-            tvDashbordSubHead2_1 = itemView.findViewById(R.id.tvDashbordSubHead2_1);
+//            tvDashbordSubHead2_1 = itemView.findViewById(R.id.tvDashbordSubHead2_1);
             tvDashbordSubHead3 = itemView.findViewById(R.id.tvDashbordSubHead3);
             itemView.setOnClickListener(this);
         }
@@ -108,6 +108,18 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.View
         public void setWidgetValue(int position) {
             performanceResponseDataItem = responseList.get(position);
             tvDashbordHead.setText(performanceResponseDataItem.getTitle());
+            if(!performanceResponseDataItem.getContentOne().equals("")){
+                tvDashbordSubHead1.setVisibility(View.VISIBLE);
+                tvDashbordSubHead1.setText(performanceResponseDataItem.getContentOne());
+            }
+            if(!performanceResponseDataItem.getContentTwo().equals("")){
+                tvDashbordSubHead2.setVisibility(View.VISIBLE);
+                tvDashbordSubHead2.setText(performanceResponseDataItem.getContentTwo());
+            }
+            if(!performanceResponseDataItem.getFinancialYear().equals("")){
+                tvDashbordSubHead3.setVisibility(View.VISIBLE);
+                tvDashbordSubHead3.setText(performanceResponseDataItem.getFinancialYear());
+            }
             if (position == 4 || position == 5) {
                 final float inPixels = context.getResources().getDimension(R.dimen.dashboard_image_icon_size);
                 ViewGroup.LayoutParams params = ivDashBoardIcon.getLayoutParams();

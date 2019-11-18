@@ -35,7 +35,8 @@ import static com.example.sagarunnati.utility.Api.DASHBOARD_DATA;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashBoardFragment extends Fragment implements VolleyService.InterfaceVolleyResult {
+public class DashBoardFragment extends Fragment implements
+        VolleyService.InterfaceVolleyResult {
     private final String TAG = MyApplication.TAG + this.getClass().getSimpleName();
     private View view;
     private Context context;
@@ -63,6 +64,9 @@ public class DashBoardFragment extends Fragment implements VolleyService.Interfa
         setRecyclerViewParam(recyclerView);
         equalSpacingItemDecoration = new EqualSpacingItemDecoration(20);
         recyclerView.addItemDecoration(equalSpacingItemDecoration);
+//        dashBoardAdapter = new DashBoardAdapter(getContext());
+//        recyclerView.setAdapter(dashBoardAdapter);
+
 
     }
 
@@ -73,6 +77,7 @@ public class DashBoardFragment extends Fragment implements VolleyService.Interfa
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(context, 2);
         recyclerView.setLayoutManager(layoutManager);
+
     }
 
     private void getDashboardData() {
@@ -91,6 +96,7 @@ public class DashBoardFragment extends Fragment implements VolleyService.Interfa
             responseList = volleyService.getGson().fromJson(userJson, performanceListType);
             Logger.v(requestType, ""+responseList.size());
             dashBoardAdapter = new DashBoardAdapter(getContext(),responseList);
+//            dashBoardAdapter = new DashBoardAdapter(getContext());
             recyclerView.setAdapter(dashBoardAdapter);
 
         } catch (JSONException e) {

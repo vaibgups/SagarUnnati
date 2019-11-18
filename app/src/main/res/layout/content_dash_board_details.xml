@@ -38,34 +38,60 @@
         android:orientation="vertical">
 
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/rlDashBoardDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="90dp"
+            android:orientation="vertical"
             android:layout_marginTop="22dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_alignParentTop="true">
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true">
 
             <TextView
                 android:id="@+id/tvDashbordHead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
                 android:text="Daily Vessel Position"
                 android:textColor="@color/text_white_color"
                 android:textSize="14sp"
                 android:textAlignment="textEnd"/>
 
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvDashbordSubHead1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="117"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textColor="@color/text_white_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvDashbordSubHead2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="93"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textColor="@color/text_white_color"
+                android:textSize="13sp"
+
+                />
+
+<!--
             <LinearLayout
-                android:visibility="invisible"
                 android:id="@+id/llSub1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/llSub2"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="2dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="right">
 
                 <TextView
                     android:id="@+id/tvDashbordSubHead1"
@@ -85,16 +111,15 @@
                     android:textSize="13sp" />
 
             </LinearLayout>
+-->
 
-            <LinearLayout
-                android:visibility="invisible"
+           <!-- <LinearLayout
                 android:id="@+id/llSub2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/tvDashbordSubHead3"
-                android:layout_alignParentRight="true"
                 android:layout_marginBottom="2dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="right">
 
                 <TextView
                     android:id="@+id/tvDashbordSubHead2"
@@ -117,28 +142,22 @@
 
 
 
-            </LinearLayout>
+            </LinearLayout>-->
 
 
 
             <TextView
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:id="@+id/tvDashbordSubHead3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:text="93"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
                 android:textColor="@color/text_white_color"
-                android:textSize="13sp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginLeft="10dp"
-
-                />
+                android:textSize="13sp"/>
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
 

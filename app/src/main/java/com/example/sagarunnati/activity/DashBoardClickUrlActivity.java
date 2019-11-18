@@ -27,7 +27,8 @@ import com.example.sagarunnati.utility.Logger;
 import com.example.sagarunnati.utility.RequestParameter;
 import com.example.sagarunnati.utility.SpinnerYearMonth;
 
-public class DashBoardClickUrlActivity extends AppCompatActivity implements SpinnerYearMonth.SelectedYearMonthInterFace {
+public class DashBoardClickUrlActivity extends AppCompatActivity implements
+        SpinnerYearMonth.SelectedYearMonthInterFace {
 
     private CustomActionBar customActionBar;
     private WebView webViewDashBoardUrlLoad;
@@ -74,32 +75,32 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements Spin
                 break;
             }
             case 5:{
-                fragment = new ProjectsUnderSagarmalaFragment();
-                fragmentLoad(fragment);
-                break;
-            }
-            case 6:{
-                fragment = new SagarmalaBeneficiariesFragment();
-                fragmentLoad(fragment);
-                break;
-            }
-            case 7:{
-                fragment = new StatementCargoTrafFragment();
-                fragmentLoad(fragment);
-                break;
-            }
-            case 8:{
-                fragment = new DirectorateGeneralShipFragment();
-                fragmentLoad(fragment);
-                break;
-            }
-            case 9:{
                 fragment = new AvgOutputPerShipBerthdayFragment();
                 fragmentLoad(fragment);
                 break;
             }
-            case 10:{
+            case 6:{
                 fragment = new AnnOverAndCoastTrafficFragment();
+                fragmentLoad(fragment);
+                break;
+            }
+            case 7:{
+                fragment = new ProjectsUnderSagarmalaFragment();
+                fragmentLoad(fragment);
+                break;
+            }
+            case 8:{
+                fragment = new SagarmalaBeneficiariesFragment();
+                fragmentLoad(fragment);
+                break;
+            }
+            case 9:{
+                fragment = new StatementCargoTrafFragment();
+                fragmentLoad(fragment);
+                break;
+            }
+            case 10:{
+                fragment = new DirectorateGeneralShipFragment();
                 fragmentLoad(fragment);
                 break;
             }

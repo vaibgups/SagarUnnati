@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvCstDigHeadForm"
+    <RelativeLayout
+        android:id="@+id/rlHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="#06b0c5"
-        android:padding="10dp"
-        android:text="LOGIN"
-        android:textColor="@color/text_white_color"
-        android:textSize="20sp"
-        android:textAlignment="center"/>
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tvCstDigHeadForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#06b0c5"
+            android:padding="10dp"
+            android:text="LOGIN"
+            android:textColor="@color/text_white_color"
+            android:textSize="20sp"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/ivCstDigCancel"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_cancel_black_24dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/white" />
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llCstDigLoginParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvCstDigHeadForm"
+        android:layout_below="@+id/rlHeading"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        >
+        android:minHeight="250dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edtCstDigLoginId"
                 android:hint="@string/edt_login_hint_enter_email_address"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,12 +62,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edtCstDigLoginPassword"
                 android:hint="@string/edt_login_hint_enter_password"
-                android:inputType="textPassword"/>
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,37 +78,35 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_log_in"
             android:background="@drawable/register_form_btn_submit_border"
-            />
+            android:layout_marginTop="20dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            >
-        <TextView
-            android:id="@+id/tvCstDigLoginForgetPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_login_forget_password"
-            android:singleLine="true"
-            android:layout_alignParentLeft="true"
-            android:textSize="16sp"
-            android:textColor="@color/blue"
-            />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/tvCstDigLoginForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_login_forget_password"
+                android:singleLine="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="16sp"
+                android:textColor="@color/blue" />
 
 
-        <TextView
-            android:id="@+id/tvCstDigLoginRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_login_register"
-            android:textAlignment="textEnd"
-            android:singleLine="true"
-            android:layout_alignParentRight="true"
-            android:textSize="16sp"
-            android:textColor="@color/blue"
-            />
+            <TextView
+                android:id="@+id/tvCstDigLoginRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_login_register"
+                android:textAlignment="textEnd"
+                android:singleLine="true"
+                android:layout_alignParentRight="true"
+                android:textSize="16sp"
+                android:textColor="@color/blue" />
 
         </RelativeLayout>
 
@@ -99,12 +117,10 @@
         layout="@layout/default_custom_dialog_box_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvCstDigHeadForm"
+        android:layout_below="@+id/rlHeading"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:visibility="gone"/>
-
-
+        android:visibility="gone" />
 
 
 </RelativeLayout>

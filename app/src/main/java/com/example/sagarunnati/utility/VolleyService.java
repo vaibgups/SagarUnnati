@@ -1,5 +1,6 @@
 package com.example.sagarunnati.utility;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.widget.Toast;
@@ -48,6 +49,17 @@ public class VolleyService {
         }
     };
 
+    public VolleyService(Activity resultCallback, Context context) {
+        mResultCallback = (InterfaceVolleyResult) resultCallback;
+        mContext = context;
+        singletonRequestQueue = SingletonRequestQueue.getInstance(mContext);
+        requestQueue = singletonRequestQueue.getRequestQueue();
+        gson = new Gson();
+        progressDialog = new ProgressDialog(mContext);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setCancelable(true);
+    }
     public VolleyService(InterfaceVolleyResult resultCallback, Context context) {
         mResultCallback = resultCallback;
         mContext = context;

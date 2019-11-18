@@ -9,6 +9,7 @@ public class RequestParameter implements Serializable {
     private int fy_month;
     private int PortId;
     private String selectedMonth;
+    private String  loginEmail, loginPassword;
     private Map<String,String> hashMap = new HashMap<>();
 
     public String getFinancialYear() {
@@ -40,6 +41,24 @@ public class RequestParameter implements Serializable {
 
     public void setSelectedMonth(String selectedMonth) {
         this.selectedMonth = selectedMonth;
+    }
+
+    public String getLoginEmail() {
+        return loginEmail;
+    }
+
+    public void setLoginEmail(String loginEmail) {
+        this.loginEmail = loginEmail;
+        hashMap.put("login_email",String.valueOf(loginEmail));
+    }
+
+    public String getLoginPassword() {
+        return loginPassword;
+    }
+
+    public void setLoginPassword(String loginPassword) {
+        this.loginPassword = loginPassword;
+        hashMap.put("login_password",String.valueOf(loginPassword));
     }
 
     public Map<String, String> getHashMap() {
