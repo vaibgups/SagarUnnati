@@ -3,6 +3,7 @@ package com.example.sagarunnati.utility;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +15,13 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
+import com.example.sagarunnati.activity.UserAfterLoginActivity;
+import com.example.sagarunnati.model.login.LoginResponse;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static com.example.sagarunnati.utility.Api.BASE_INFO_URL;
 import static com.example.sagarunnati.utility.Api.BASE_URL;
-import static com.example.sagarunnati.utility.Api.CONTACT_US;
 import static com.example.sagarunnati.utility.Api.VALIDATE_USER;
 
 public class CustomDialogBoxLogin implements View.OnClickListener,
@@ -48,6 +49,8 @@ public class CustomDialogBoxLogin implements View.OnClickListener,
 
     private VolleyService volleyService;
     private RequestParameter requestParameter;
+    private LoginResponse loginResponse;
+    private SharedPreferenceData mSharedPreferenceData;
 
     public CustomDialogBoxLogin(Context context) {
         this.context = context;
@@ -89,7 +92,6 @@ public class CustomDialogBoxLogin implements View.OnClickListener,
 
         btnCstDigRegSubmit = dialog.findViewById(R.id.btnCstDigRegSubmit);
         btnCstDigRegSubmit.setOnClickListener(this);
-
         dialog.setCancelable(false);
         dialog.show();
     }
@@ -161,13 +163,28 @@ public class CustomDialogBoxLogin implements View.OnClickListener,
 
     private void getContactUsContent() {
         volleyService = new VolleyService(CustomDialogBoxLogin.this, context);
-        volleyService.postStringRequestWithParam(VALIDATE_USER, VALIDATE_USER, requestParameter.getHashMap());
+        volleyService.postStringRequestWithParam(VALIDATE_USER, BASE_URL+VALIDATE_USER, requestParameter.getHashMap());
     }
 
     @Override
     public void notifySuccess(String requestType, String response) {
-        Toast.makeText(context, ""+response, Toast.LENGTH_SHORT).show();
         Logger.v(requestType,response);
+        if (requestType.equals(VALIDATE_USER)){
+            loginResponse = volleyService.getGson().fromJson(response, LoginResponse.class);
+            if (loginResponse.isStatus()){
+                Toast.makeText(context, loginResponse.getMsg(),
+                        Toast.LENGTH_SHORT).show();
+                mSharedPreferenceData = SharedPreferenceData.getInstance(context);
+                mSharedPreferenceData.put(LoginResponse.class.getSimpleName(),response);
+                dialog.dismiss();
+                context.startActivity(new Intent(context, UserAfterLoginActivity.class));
+                activity.finish();
+
+            }else {
+                Toast.makeText(context, loginResponse.getMsg(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override

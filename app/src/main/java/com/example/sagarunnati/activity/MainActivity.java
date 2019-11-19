@@ -3,6 +3,7 @@ package com.example.sagarunnati.activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +21,12 @@ import com.example.sagarunnati.fragment.HomeFragment;
 import com.example.sagarunnati.mInterface.HomeScreenButtonInterface;
 import com.example.sagarunnati.utility.ConnectivityReceiver;
 import com.example.sagarunnati.utility.CustomActionBar;
-import com.example.sagarunnati.utility.CustomDialogBoxLogin;
 import com.example.sagarunnati.utility.CustomDialogBox;
+import com.example.sagarunnati.utility.CustomDialogBoxLogin;
 import com.example.sagarunnati.utility.Logger;
 
-public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener, HomeScreenButtonInterface {
+public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener,
+        HomeScreenButtonInterface {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -37,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     private FragmentTransaction fragmentTransaction;
 
 
-    private boolean isNetworkConnected = false;
+    private boolean isNetworkConnected = false, isLogin = false;
+    private TextView tvDefaultActionBarLogout;
 
 
     @Override
@@ -45,26 +48,21 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkConnection();
-        Logger.v(TAG,"Logger Test");
         init();
-
-
-
     }
-
 
 
     private boolean checkConnection() {
         isNetworkConnected = ConnectivityReceiver.isConnected();
-        Logger.d(TAG, ""+isNetworkConnected);
+        Logger.d(TAG, "" + isNetworkConnected);
         return isNetworkConnected;
 
     }
 
     private void init() {
-
         customActionBar = new CustomActionBar(MainActivity.this);
-        customActionBar.setToolBarHomeHeaderName("Sagar Unnati");
+        customActionBar.setToolBarHomeHeaderName(getResources().
+                getString(R.string.tv_default_action_bar_name), isLogin);
 
         fragmentContainer = findViewById(R.id.fragmentContainer);
 
@@ -79,16 +77,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     protected void onResume() {
         super.onResume();
         MyApplication.getMyApplicationInstance().setConnectivityListener(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
@@ -107,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         } else {
 //            super.onBackPressed();
             fragmentManager.popBackStack();
-            customActionBar.setToolBarHomeHeaderName("Sagar Unnati");
+            customActionBar.setToolBarHomeHeaderName("Sagar Unnati",isLogin);
         }
     }
 
@@ -116,12 +104,11 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     public void homeScreenButtonClick(int adapterPos) {
         switch (adapterPos) {
             case 0: {
-
                 if (checkConnection()) {
                     fragment = new AboutUsFragment();
-                    customActionBar.setToolbarHeaderName("About us");
+                    customActionBar.setToolbarHeaderName("About us", isLogin);
                     fragmentLoad(fragment);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -129,9 +116,9 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
             case 1: {
                 if (checkConnection()) {
                     fragment = new GalleryFragment();
-                    customActionBar.setToolbarHeaderName("Gallery");
+                    customActionBar.setToolbarHeaderName("Gallery", isLogin);
                     fragmentLoad(fragment);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -141,26 +128,23 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                 customDialogBox.initCustomDialog();
                 break;
             }
-
             case 3: {
-                if (checkConnection()){
+                if (checkConnection()) {
                     fragment = new ContactUsFragment();
-                    customActionBar.setToolbarHeaderName("Contact Us");
+                    customActionBar.setToolbarHeaderName("Contact Us", isLogin);
                     fragmentLoad(fragment);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
-
                 break;
             }
 
             case 4: {
-
                 if (checkConnection()) {
                     fragment = new DashBoardFragment();
-                    customActionBar.setToolbarHeaderName("Dash Board");
+                    customActionBar.setToolbarHeaderName("Dash Board", isLogin);
                     fragmentLoad(fragment);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -168,19 +152,15 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
             }
 
             case 5: {
-
                 if (checkConnection()) {
                     CustomDialogBoxLogin customDialogBox = new CustomDialogBoxLogin(MainActivity.this);
                     customDialogBox.initCustomDialog();
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
-
             }
-
         }
-
     }
 
     private void fragmentLoad(Fragment fragment) {
@@ -188,10 +168,11 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 //        fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up);
-        fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up,R.anim.slide_out_up, R.anim.slide_in_up);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_up);
         fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(null)
                 .commit();
     }
+
 
 }

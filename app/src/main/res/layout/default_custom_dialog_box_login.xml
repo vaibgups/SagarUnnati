@@ -35,11 +35,15 @@
 
     </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlHeading">
+
     <LinearLayout
         android:id="@+id/llCstDigLoginParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlHeading"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -47,7 +51,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp">
 
             <EditText
                 android:layout_width="match_parent"
@@ -61,12 +66,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edtCstDigLoginPassword"
+                android:inputType="textPassword"
                 android:hint="@string/edt_login_hint_enter_password"
                  />
 
@@ -112,6 +119,8 @@
 
     </LinearLayout>
 
+    </ScrollView>
+
     <include
         android:id="@+id/includeRegister"
         layout="@layout/default_custom_dialog_box_register"
@@ -121,6 +130,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:visibility="gone" />
+
+
 
 
 </RelativeLayout>

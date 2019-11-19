@@ -6,6 +6,7 @@
     <dimen name="text_size_home_screen_button">15sp</dimen>
 
     <dimen name="dashboard_image_icon_size">30dp</dimen>
+    <dimen name="dashboard_bottom_image_icon_size">30dp</dimen>
 
     <dimen name="dimen_1dp">1dp</dimen>
     <dimen name="dimen_2dp">2dp</dimen>

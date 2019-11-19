@@ -11,7 +11,9 @@
         android:id="@+id/appbar_layout"/>
 
 
-    <include layout="@layout/default_spiner_year_month"/>
+    <include android:id="@+id/layoutYearMonthSpinner"
+        android:visibility="gone"
+        layout="@layout/default_spiner_year_month"/>
 
     <FrameLayout
         android:id="@+id/flDashBoardContainer"

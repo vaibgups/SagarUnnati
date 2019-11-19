@@ -3,12 +3,6 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.sagarunnati">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <dist:module dist:instant="true" />
-
-
     <application
         android:name=".appliaction.MyApplication"
         android:allowBackup="true"
@@ -18,21 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DashBoardClickUrlActivity"></activity>
+        <activity android:name=".activity.UserAfterLoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" ></activity>
+        <activity android:name=".activity.DashBoardClickUrlActivity" />
         <activity
             android:name=".activity.SplashScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activity.ExpandedImageActivity"/>
+            android:windowSoftInputMode="adjustPan" />
 
         <receiver
             android:name=".utility.ConnectivityReceiver"
@@ -43,5 +39,10 @@
             </intent-filter>
         </receiver>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module dist:instant="true" />
 
 </manifest>

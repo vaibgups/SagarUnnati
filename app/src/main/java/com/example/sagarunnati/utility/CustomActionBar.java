@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.activity.MainActivity;
 import com.example.sagarunnati.activity.SplashScreenActivity;
+import com.example.sagarunnati.activity.UserAfterLoginActivity;
+import com.example.sagarunnati.model.login.LoginResponse;
 
 public class CustomActionBar implements View.OnClickListener {
 
@@ -22,11 +24,12 @@ public class CustomActionBar implements View.OnClickListener {
     private Activity activity;
 
     private ImageView ivDefaultActionBarHome, ivDefaultActionBarBack;
-    private TextView tvDefaultActionBar;
-
+    private TextView tvDefaultActionBar, tvDefaultActionBarLogout;
+    private SharedPreferenceData mSharedPreferenceData;
     public CustomActionBar(Context context) {
         this.context = context;
         this.activity = (Activity) context;
+        mSharedPreferenceData = SharedPreferenceData.getInstance(context);
         myFindViewById();
     }
 
@@ -40,6 +43,8 @@ public class CustomActionBar implements View.OnClickListener {
         ivDefaultActionBarBack.setVisibility(View.INVISIBLE);
         ivDefaultActionBarHome = ((Activity) context).findViewById(R.id.ivDefaultActionBarHome);
         ivDefaultActionBarHome.setOnClickListener(this);
+        tvDefaultActionBarLogout = ((Activity) context).findViewById(R.id.tvDefaultActionBarLogout);
+
     }
 
     @Override
@@ -51,29 +56,45 @@ public class CustomActionBar implements View.OnClickListener {
                 break;
             }
             case R.id.ivDefaultActionBarHome: {
-                activity.startActivity(new Intent(context, MainActivity.class));
+                if (activity instanceof MainActivity) {
+                    activity.startActivity(new Intent(context, MainActivity.class));
+                }else if (activity instanceof UserAfterLoginActivity){
+                    activity.startActivity(new Intent(context, UserAfterLoginActivity.class));
+                }
                 activity.finish();
+                break;
+            }
+            case R.id.tvDefaultActionBarLogout: {
+               mSharedPreferenceData.clear();
+               context.startActivity(new Intent(context,MainActivity.class));
+               activity.finish();
                 break;
             }
         }
     }
 
-    public void setToolbarHeaderName(String toolbarHeaderName){
+    public void setToolBarHomeHeaderName(String toolBarHomeHeaderName, boolean isLogin){
+        ivDefaultActionBarBack.setVisibility(View.GONE);
+        ivDefaultActionBarHome.setVisibility(View.GONE);
+        tvDefaultActionBar.setText(toolBarHomeHeaderName);
+        if (isLogin){
+            tvDefaultActionBarLogout.setVisibility(View.VISIBLE);
+            tvDefaultActionBarLogout.setOnClickListener(this);
+        }
+    }
+
+    public void setToolbarHeaderName(String toolbarHeaderName, boolean isLogin){
         tvDefaultActionBar.setText(toolbarHeaderName);
         ivDefaultActionBarBack.setVisibility(View.VISIBLE);
         ivDefaultActionBarHome.setVisibility(View.VISIBLE);
+        if (isLogin){
+            tvDefaultActionBarLogout.setVisibility(View.VISIBLE);
+            tvDefaultActionBarLogout.setOnClickListener(this);
+        }
 //        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) tvDefaultActionBar.getLayoutParams();
 //        lp.addRule(RelativeLayout.RIGHT_OF,R.id.ivDefaultActionBarBack);
 //        tvDefaultActionBar.setLayoutParams(lp);
     }
 
-    public void setToolBarHomeHeaderName(String toolBarHomeHeaderName){
-        ivDefaultActionBarBack.setVisibility(View.GONE);
-        ivDefaultActionBarHome.setVisibility(View.GONE);
-        tvDefaultActionBar.setText(toolBarHomeHeaderName);
-//        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) tvDefaultActionBar.getLayoutParams();
-//        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-//        tvDefaultActionBar.setLayoutParams(lp);
 
-    }
 }

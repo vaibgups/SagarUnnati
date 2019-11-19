@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.DailyVesselFrgAdapter;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,6 +53,10 @@ public class DailyVesselFragment extends Fragment {
         rvDVFrg.setLayoutManager(new LinearLayoutManager(context));
         dailyVesselFrgAdapter = new DailyVesselFrgAdapter(context);
         rvDVFrg.setAdapter(dailyVesselFrgAdapter);
+
+    }
+
+    public void filterData(RequestParameter requestParameter){
 
     }
 

@@ -127,6 +127,7 @@ public class VolleyService {
 //                    param.put("Content-Type", "application/x-www-form-urlencoded");
                     return param;
                 }
+
             };
             request.setShouldCache(false);
             request.setRetryPolicy(new DefaultRetryPolicy(
@@ -145,18 +146,23 @@ public class VolleyService {
         return gson;
     }
 
-    public void getDataJsonGetRequest(final String requestType, String url) {
-       /* try {
+    public void postJsonAuthBearerRequest(final String requestType, String url, final Map<String, String> param) {
+        try {
             this.requestType = requestType;
 
-            JsonObjectRequest jsonObj = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest jsonObj = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     if (mResultCallback != null)
                         mResultCallback.notifySuccess(requestType, response.toString());
                 }
             },
-                    errorListener);
+                    errorListener){
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    return param;
+                }
+            };
 
             jsonObj.setShouldCache(false);
             jsonObj.setRetryPolicy(new DefaultRetryPolicy(
@@ -166,30 +172,6 @@ public class VolleyService {
             requestQueue.add(jsonObj);
 
         } catch (Exception e) {
-        }*/
-
-        try {
-            this.requestType = requestType;
-            progressDialog.show();
-            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    progressDialog.dismiss();
-                    if (mResultCallback != null) {
-                        mResultCallback.notifySuccess(requestType, response);
-
-                    }
-                }
-            }, errorListener);
-            request.setShouldCache(false);
-            request.setRetryPolicy(new DefaultRetryPolicy(
-                    4000,
-                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            requestQueue.add(request);
-
-        } catch (Exception e) {
-            progressDialog.dismiss();
         }
 
 

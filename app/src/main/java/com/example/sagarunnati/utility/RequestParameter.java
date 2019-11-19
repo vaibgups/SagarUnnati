@@ -9,7 +9,7 @@ public class RequestParameter implements Serializable {
     private int fy_month;
     private int PortId;
     private String selectedMonth;
-    private String  loginEmail, loginPassword;
+    private String  loginEmail, loginPassword, accessToken;
     private Map<String,String> hashMap = new HashMap<>();
 
     public String getFinancialYear() {
@@ -65,5 +65,26 @@ public class RequestParameter implements Serializable {
         return hashMap;
     }
 
+    public String getAccessToken() {
+        return accessToken;
+    }
 
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        hashMap.put("Authorization", "Bearer " + accessToken);
+    }
+
+    @Override
+    public String toString() {
+        return "RequestParameter{" +
+                "FinancialYear='" + FinancialYear + '\'' +
+                ", fy_month=" + fy_month +
+                ", PortId=" + PortId +
+                ", selectedMonth='" + selectedMonth + '\'' +
+                ", loginEmail='" + loginEmail + '\'' +
+                ", loginPassword='" + loginPassword + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                ", hashMap=" + hashMap +
+                '}';
+    }
 }

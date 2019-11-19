@@ -24,7 +24,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.sagarunnati.utility.Api.ABOUT_US;
 import static com.example.sagarunnati.utility.Api.BASE_INFO_URL;
 import static com.example.sagarunnati.utility.Api.CONTACT_US;
 
