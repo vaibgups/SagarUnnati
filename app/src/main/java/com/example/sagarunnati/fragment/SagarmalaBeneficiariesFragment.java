@@ -14,12 +14,16 @@ import android.view.ViewGroup;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.SagarmalaBeneFiciariesFrgAdapter;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SagarmalaBeneficiariesFragment extends Fragment {
+public class SagarmalaBeneficiariesFragment extends Fragment implements FilterDataInterface {
 
+    private static final String TAG = SagarmalaBeneficiariesFragment.class.getSimpleName();
 
     private Context context;
     private View view;
@@ -43,4 +47,12 @@ public class SagarmalaBeneficiariesFragment extends Fragment {
         rvSBFrg.setAdapter(sagarmalaBeneFiciariesFrgAdapter);
     }
 
+    public void filterData(RequestParameter requestParameter) {
+
+    }
+
+    @Override
+    public void filterParameter(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+    }
 }

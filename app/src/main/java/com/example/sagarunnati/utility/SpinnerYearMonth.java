@@ -16,7 +16,6 @@ import com.example.sagarunnati.model.yearMonth.YearMonthResponse;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.example.sagarunnati.utility.Api.BASE_URL;
@@ -77,10 +76,6 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
 
     }
 
-    private void getYearMonth() {
-        volleyService.postJsonAuthBearerRequest(YEAR_MONTH_FINANCIAL,BASE_URL+YEAR_MONTH_FINANCIAL,requestParameter.getHashMap());
-    }
-
    /* private void initByView() {
         year = view.findViewById(R.id.year);
         month = view.findViewById(R.id.month);
@@ -97,7 +92,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
 
         year.setAdapter(yearAdapter);
         if (requestParameter!= null){
-            year.setSelection(yearStringArrayList.indexOf(requestParameter.getFinancialYear()));
+            year.setSelection(yearStringArrayList.indexOf(requestParameter.getSelect_fy()));
         }else {
             year.setSelection(yearStringArrayList.size() - 1);
         }
@@ -120,7 +115,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         adapter_option.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         month.setAdapter(adapter_option);
         if (requestParameter!= null){
-            month.setSelection(monthStringArrayList.indexOf(monthStringArrayList.get(requestParameter.getFy_month()-1)));
+            month.setSelection(monthStringArrayList.indexOf(monthStringArrayList.get(requestParameter.getSelect_month()-1)));
         }else {
             month.setSelection(monthStringArrayList.indexOf(DateUtility.currentMonth()));
         }
@@ -129,7 +124,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (selectedYearMonthInterFace != null) {
                     selectedYearMonthInterFace.selectedMonth(position + 1,monthStringArrayList.get(position));
-//                    requestParameter.setSelectedMonth(monthStringArrayList.get(position));
+//                    requestParameter.setSelectedMonthName(monthStringArrayList.get(position));
                 }
             }
             @Override
@@ -160,7 +155,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         year.setSelection(0);
        /* year.setAdapter(yearAdapter);
         if (requestParameter!= null){
-            year.setSelection(yearStringArrayList.indexOf(requestParameter.getFinancialYear()));
+            year.setSelection(yearStringArrayList.indexOf(requestParameter.getSelect_fy()));
         }else {
             year.setSelection(yearStringArrayList.size() - 1);
         }*/
@@ -188,7 +183,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         month.setAdapter(adapter_option);
         month.setSelection(monthStringArrayList.indexOf(DateUtility.currentMonth()));
        /* if (requestParameter!= null){
-            month.setSelection(monthStringArrayList.indexOf(monthStringArrayList.get(requestParameter.getFy_month()-1)));
+            month.setSelection(monthStringArrayList.indexOf(monthStringArrayList.get(requestParameter.getSelect_month()-1)));
         }else {
             month.setSelection(monthStringArrayList.indexOf(DateUtility.currentMonth()));
         }*/
@@ -196,8 +191,8 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (selectedYearMonthInterFace != null) {
-                    selectedYearMonthInterFace.selectedMonth(position,
-                            yearMonthResponse.getMasterData().getFinancialMonth());
+                    selectedYearMonthInterFace.selectedMonth(
+                            yearMonthResponse.getMasterData().getFinancialMonth().get(position));
                 }
             }
             @Override
@@ -214,6 +209,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
 
     public interface SelectedYearMonthInterFace {
         void selectedYear(String selectedYear);
-        void selectedMonth(int selectedMonth, List<FinancialMonthItem> financialMonthItemList);
+
+        void selectedMonth(FinancialMonthItem financialMonthItem);
     }
 }

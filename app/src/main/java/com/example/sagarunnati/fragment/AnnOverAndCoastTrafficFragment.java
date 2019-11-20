@@ -13,12 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.AnnOverAndCoastalTrafficFrgAdapter;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AnnOverAndCoastTrafficFragment extends Fragment {
+public class AnnOverAndCoastTrafficFragment extends Fragment implements FilterDataInterface {
 
+
+    private static final String TAG = AnnOverAndCoastTrafficFragment.class.getSimpleName();
 
     private View view;
     private Context context;
@@ -33,13 +38,21 @@ public class AnnOverAndCoastTrafficFragment extends Fragment {
         init();
         return view;
     }
+
     private void init() {
         rvAOCTFrg = view.findViewById(R.id.rvAOCTFrg);
         rvAOCTFrg.setHasFixedSize(true);
         rvAOCTFrg.setLayoutManager(new LinearLayoutManager(context));
         annOverAndCoastalTrafficFrgAdapter = new AnnOverAndCoastalTrafficFrgAdapter(context);
         rvAOCTFrg.setAdapter(annOverAndCoastalTrafficFrgAdapter);
+    }
+
+    public void filterData(RequestParameter requestParameter) {
 
     }
 
+    @Override
+    public void filterParameter(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+    }
 }

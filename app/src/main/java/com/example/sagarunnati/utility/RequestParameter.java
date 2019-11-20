@@ -5,29 +5,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RequestParameter implements Serializable {
-    private String FinancialYear;
-    private int fy_month;
+    private String select_fy;
+    private int select_month;
     private int PortId;
-    private String selectedMonth;
+    private String selectedMonthName;
     private String  loginEmail, loginPassword, accessToken;
     private Map<String,String> hashMap = new HashMap<>();
 
-    public String getFinancialYear() {
-        return FinancialYear;
+
+    public void setSelect_fy(String select_fy) {
+        this.select_fy = select_fy;
+        hashMap.put("select_fy", select_fy);
     }
 
-    public void setFinancialYear(String financialYear) {
-        FinancialYear = financialYear;
-        hashMap.put("FinancialYear",financialYear);
+    public String getSelect_fy() {
+        return select_fy;
     }
 
-    public int getFy_month() {
-        return fy_month;
+    public void setSelect_month(int select_month) {
+        this.select_month = select_month;
+        hashMap.put("select_month", String.valueOf(select_month));
     }
 
-    public void setFy_month(int fy_month) {
-        this.fy_month = fy_month;
-        hashMap.put("fy_month",String.valueOf(fy_month));
+    public int getSelect_month() {
+        return select_month;
     }
 
     public void setPortId(int portId) {
@@ -35,16 +36,16 @@ public class RequestParameter implements Serializable {
         hashMap.put("PortId",String.valueOf(PortId));
     }
 
-    public String getSelectedMonth() {
-        return selectedMonth;
+    public int getPortId() {
+        return PortId;
     }
 
-    public void setSelectedMonth(String selectedMonth) {
-        this.selectedMonth = selectedMonth;
+    public void setSelectedMonthName(String selectedMonthName) {
+        this.selectedMonthName = selectedMonthName;
     }
 
-    public String getLoginEmail() {
-        return loginEmail;
+    public String getSelectedMonthName() {
+        return selectedMonthName;
     }
 
     public void setLoginEmail(String loginEmail) {
@@ -52,35 +53,41 @@ public class RequestParameter implements Serializable {
         hashMap.put("login_email",String.valueOf(loginEmail));
     }
 
-    public String getLoginPassword() {
-        return loginPassword;
+    public String getLoginEmail() {
+        return loginEmail;
     }
+
 
     public void setLoginPassword(String loginPassword) {
         this.loginPassword = loginPassword;
         hashMap.put("login_password",String.valueOf(loginPassword));
     }
 
+    public String getLoginPassword() {
+        return loginPassword;
+    }
+
     public Map<String, String> getHashMap() {
         return hashMap;
     }
 
-    public String getAccessToken() {
-        return accessToken;
-    }
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
         hashMap.put("Authorization", "Bearer " + accessToken);
     }
 
+    public String getAccessToken() {
+        return accessToken;
+    }
+
     @Override
     public String toString() {
         return "RequestParameter{" +
-                "FinancialYear='" + FinancialYear + '\'' +
-                ", fy_month=" + fy_month +
+                "select_fy='" + select_fy + '\'' +
+                ", select_month=" + select_month +
                 ", PortId=" + PortId +
-                ", selectedMonth='" + selectedMonth + '\'' +
+                ", selectedMonthName='" + selectedMonthName + '\'' +
                 ", loginEmail='" + loginEmail + '\'' +
                 ", loginPassword='" + loginPassword + '\'' +
                 ", accessToken='" + accessToken + '\'' +

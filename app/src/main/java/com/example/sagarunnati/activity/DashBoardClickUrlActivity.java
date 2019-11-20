@@ -1,20 +1,17 @@
 package com.example.sagarunnati.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.android.volley.VolleyError;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.fragment.AnnOverAndCoastTrafficFragment;
 import com.example.sagarunnati.fragment.AvgOutputPerShipBerthdayFragment;
@@ -26,6 +23,7 @@ import com.example.sagarunnati.fragment.SagarmalaBeneficiariesFragment;
 import com.example.sagarunnati.fragment.StatementCargoTrafFragment;
 import com.example.sagarunnati.fragment.TrafficCommoWiseFragment;
 import com.example.sagarunnati.fragment.TrafficFragment;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
 import com.example.sagarunnati.model.login.LoginResponse;
 import com.example.sagarunnati.model.yearMonth.FinancialMonthItem;
 import com.example.sagarunnati.utility.CustomActionBar;
@@ -36,17 +34,14 @@ import com.example.sagarunnati.utility.SpinnerYearMonth;
 import com.example.sagarunnati.utility.VolleyService;
 import com.google.gson.Gson;
 
-import java.util.List;
-
 public class DashBoardClickUrlActivity extends AppCompatActivity implements
-        SpinnerYearMonth.SelectedYearMonthInterFace, View.OnClickListener
-{
+        SpinnerYearMonth.SelectedYearMonthInterFace, View.OnClickListener {
     private int loadFragAtPos;
     private CustomActionBar customActionBar;
     private RequestParameter requestParameter;
     private SharedPreferenceData mSharedPreferenceData;
     private LoginResponse loginResponse;
-    private boolean isLogin = false;
+    private boolean isLogin = false, isFragmentFirstLoad = true;
 
     private View layoutYearMonthSpinner;
     private Button btnYearMonthFilter;
@@ -56,11 +51,9 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-
+    private FilterDataInterface filterDataInterface;
     private WebView webViewDashBoardUrlLoad;
     private VolleyService volleyService;
-
-
 
 
     @Override
@@ -68,62 +61,81 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board_click_url);
         Intent intent = getIntent();
-        if (intent.hasExtra("FragmentLoad")){
-            loadFragAtPos = intent.getIntExtra("FragmentLoad",0);
+        if (intent.hasExtra("FragmentLoad")) {
+            loadFragAtPos = intent.getIntExtra("FragmentLoad", 0);
         }
         init();
-        fragmentPos(loadFragAtPos);
+
     }
 
     private void fragmentPos(int loadFragAtPos) {
-        switch (loadFragAtPos){
-            case 1:{
-                fragment = new DailyVesselFragment();
-                Logger.v("DailyVesselFragment fragment load test request parameter object", requestParameter.toString());
-                fragmentLoad(fragment);
+        if (!isFragmentFirstLoad) {
+            if (loadFragAtPos != 9 || loadFragAtPos != 10)
+                filterDataInterface.filterParameter(requestParameter);
+        }
+        switch (loadFragAtPos) {
+            case 1: {
+                if (isFragmentFirstLoad) {
+                    fragment = new DailyVesselFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 2:{
-                fragment = new TrafficFragment();
-                fragmentLoad(fragment);
+            case 2: {
+                if (isFragmentFirstLoad) {
+                    fragment = new TrafficFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 3:{
-                fragment = new TrafficCommoWiseFragment();
-                fragmentLoad(fragment);
+            case 3: {
+                if (isFragmentFirstLoad) {
+                    fragment = new TrafficCommoWiseFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 4:{
-                fragment = new AvgTurnaroundTimeFragment();
-                fragmentLoad(fragment);
+            case 4: {
+                if (isFragmentFirstLoad) {
+                    fragment = new AvgTurnaroundTimeFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 5:{
-                fragment = new AvgOutputPerShipBerthdayFragment();
-                fragmentLoad(fragment);
+            case 5: {
+                if (isFragmentFirstLoad) {
+                    fragment = new AvgOutputPerShipBerthdayFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 6:{
-                fragment = new AnnOverAndCoastTrafficFragment();
-                fragmentLoad(fragment);
+            case 6: {
+                if (isFragmentFirstLoad) {
+                    fragment = new AnnOverAndCoastTrafficFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 7:{
-                fragment = new ProjectsUnderSagarmalaFragment();
-                fragmentLoad(fragment);
+            case 7: {
+                if (isFragmentFirstLoad) {
+                    fragment = new ProjectsUnderSagarmalaFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 8:{
-                fragment = new SagarmalaBeneficiariesFragment();
-                fragmentLoad(fragment);
+            case 8: {
+                if (isFragmentFirstLoad) {
+                    fragment = new SagarmalaBeneficiariesFragment();
+                    fragmentLoad(fragment);
+                }
                 break;
             }
-            case 9:{
+            case 9: {
                 fragment = new StatementCargoTrafFragment();
                 fragmentLoad(fragment);
                 break;
             }
-            case 10:{
+            case 10: {
                 fragment = new DirectorateGeneralShipFragment();
                 fragmentLoad(fragment);
                 break;
@@ -133,7 +145,6 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
 
     private void init() {
         customActionBar = new CustomActionBar(DashBoardClickUrlActivity.this);
-
         requestParameter = new RequestParameter();
         mSharedPreferenceData = SharedPreferenceData.getInstance(DashBoardClickUrlActivity.this);
 
@@ -141,7 +152,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
                 getString(LoginResponse.class.getSimpleName()), LoginResponse.class);
         layoutYearMonthSpinner = findViewById(R.id.layoutYearMonthSpinner);
 
-        if (loginResponse != null){
+        if (loginResponse != null) {
             requestParameter.setAccessToken(loginResponse.getToken());
             layoutYearMonthSpinner.setVisibility(View.VISIBLE);
             new SpinnerYearMonth(DashBoardClickUrlActivity.this, requestParameter);
@@ -156,30 +167,35 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
         fragmentManager = getSupportFragmentManager();
 
 
-
     }
 
 
     private void fragmentLoad(Fragment fragment) {
-        Logger.v("fragmentLoad","method call");
+        Logger.v("fragmentLoad", "method call");
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(RequestParameter.class.getSimpleName(), requestParameter);
+        fragment.setArguments(bundle);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up,R.anim.slide_out_up, R.anim.slide_in_up);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_up);
         fragmentTransaction.replace(R.id.flDashBoardContainer, fragment, fragment.getClass().getSimpleName())
                 .commit();
+        filterDataInterface = (FilterDataInterface) fragment;
+        isFragmentFirstLoad = false;
     }
 
 
     @Override
     public void selectedYear(String selectedYear) {
-        requestParameter.setFinancialYear(selectedYear);
+        requestParameter.setSelect_fy(selectedYear);
     }
 
     @Override
-    public void selectedMonth(int selectedMonth, List<FinancialMonthItem> financialMonthItemList) {
-        FinancialMonthItem monthItem = financialMonthItemList.get(selectedMonth);
-        requestParameter.setFy_month(Integer.parseInt(monthItem.getFyMonthNum()));
-        requestParameter.setSelectedMonth(monthItem.getFyMonthName());
+    public void selectedMonth(FinancialMonthItem financialMonthItem) {
+        requestParameter.setSelect_month(Integer.parseInt(financialMonthItem.getFyMonthNum()));
+        requestParameter.setSelectedMonthName(financialMonthItem.getFyMonthName());
+        if (isFragmentFirstLoad)
+            fragmentPos(loadFragAtPos);
     }
 
     @Override
@@ -187,9 +203,10 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
         switch (view.getId()) {
             case R.id.btnYearMonthFilter: {
                 Logger.v("Filter button click test request parameter object", requestParameter.toString());
-//                fragmentPos(loadFragAtPos);
+                fragmentPos(loadFragAtPos);
                 break;
             }
         }
     }
+
 }

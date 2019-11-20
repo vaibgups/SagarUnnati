@@ -14,12 +14,16 @@ import android.view.ViewGroup;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.TrafficFrgAdapter;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TrafficFragment extends Fragment {
+public class TrafficFragment extends Fragment implements FilterDataInterface {
 
+    private static final String TAG = TrafficFragment.class.getSimpleName();
 
     private View view;
     private Context context;
@@ -46,4 +50,11 @@ public class TrafficFragment extends Fragment {
 
     }
 
+    public void filterData(RequestParameter requestParameter) {
+    }
+
+    @Override
+    public void filterParameter(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+    }
 }

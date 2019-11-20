@@ -14,8 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.sagarunnati.utility.Logger;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -38,7 +36,7 @@ public class VolleyService {
         public void onErrorResponse(VolleyError error) {
             progressDialog.dismiss();
             if (error instanceof NetworkError) {
-                Logger.e(requestType,error.getMessage());
+                Logger.e(requestType, error.getMessage());
 //                Toast.makeText(mContext, "No network available", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(mContext, error.toString(), Toast.LENGTH_LONG).show();
@@ -60,6 +58,7 @@ public class VolleyService {
         progressDialog.setTitle("Please wait...");
         progressDialog.setCancelable(true);
     }
+
     public VolleyService(InterfaceVolleyResult resultCallback, Context context) {
         mResultCallback = resultCallback;
         mContext = context;
@@ -104,7 +103,7 @@ public class VolleyService {
             requestQueue.add(jsonObj);
 
         } catch (Exception e) {
-
+            progressDialog.dismiss();
         }
     }
 
@@ -149,15 +148,16 @@ public class VolleyService {
     public void postJsonAuthBearerRequest(final String requestType, String url, final Map<String, String> param) {
         try {
             this.requestType = requestType;
-
+            progressDialog.show();
             JsonObjectRequest jsonObj = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     if (mResultCallback != null)
+                        progressDialog.dismiss();
                         mResultCallback.notifySuccess(requestType, response.toString());
                 }
             },
-                    errorListener){
+                    errorListener) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     return param;
@@ -172,11 +172,11 @@ public class VolleyService {
             requestQueue.add(jsonObj);
 
         } catch (Exception e) {
+            progressDialog.dismiss();
         }
 
 
     }
-
 
 
     public interface InterfaceVolleyResult {

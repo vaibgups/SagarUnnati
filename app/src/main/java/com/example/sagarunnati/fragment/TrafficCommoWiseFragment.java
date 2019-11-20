@@ -14,12 +14,16 @@ import android.view.ViewGroup;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.TrafficCWFrgAdapter;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TrafficCommoWiseFragment extends Fragment {
+public class TrafficCommoWiseFragment extends Fragment implements FilterDataInterface {
 
+    private static final String TAG = TrafficCommoWiseFragment.class.getSimpleName();
 
     private Context context;
     private View view;
@@ -30,7 +34,6 @@ public class TrafficCommoWiseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         context = getContext();
         view = inflater.inflate(R.layout.fragment_traffic_commo_wise, container, false);
         init();
@@ -43,7 +46,15 @@ public class TrafficCommoWiseFragment extends Fragment {
         rvTCWFrg.setLayoutManager(new LinearLayoutManager(context));
         trafficCWFrgAdapter = new TrafficCWFrgAdapter(context);
         rvTCWFrg.setAdapter(trafficCWFrgAdapter);
-
     }
 
+    public void filterData(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+    }
+
+    @Override
+    public void filterParameter(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+
+    }
 }

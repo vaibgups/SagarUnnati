@@ -13,12 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.ProjectUnderSagarmalaFrgAdapter;
+import com.example.sagarunnati.mInterface.FilterDataInterface;
+import com.example.sagarunnati.utility.Logger;
+import com.example.sagarunnati.utility.RequestParameter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProjectsUnderSagarmalaFragment extends Fragment {
+public class ProjectsUnderSagarmalaFragment extends Fragment implements FilterDataInterface {
 
+    private static final String TAG = ProjectsUnderSagarmalaFragment.class.getSimpleName();
 
     private Context context;
     private View view;
@@ -41,8 +45,14 @@ public class ProjectsUnderSagarmalaFragment extends Fragment {
         rvPUSFrg.setLayoutManager(new LinearLayoutManager(context));
         projectUnderSagarmalaFrgAdapter = new ProjectUnderSagarmalaFrgAdapter(context);
         rvPUSFrg.setAdapter(projectUnderSagarmalaFrgAdapter);
+    }
 
+    public void filterData(RequestParameter requestParameter) {
 
     }
 
+    @Override
+    public void filterParameter(RequestParameter requestParameter) {
+        Logger.v(TAG, requestParameter.toString());
+    }
 }
