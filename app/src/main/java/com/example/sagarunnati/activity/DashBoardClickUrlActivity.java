@@ -48,6 +48,15 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
     private FrameLayout flDashBoardContainer;
 
     private Fragment fragment;
+
+    private DailyVesselFragment dailyVesselFragment;
+    private TrafficFragment trafficFragment;
+    private TrafficCommoWiseFragment trafficCommoWiseFragment;
+    private AvgTurnaroundTimeFragment avgTurnaroundTimeFragment;
+    private AvgOutputPerShipBerthdayFragment avgOutputPerShipBerthdayFragment;
+    private AnnOverAndCoastTrafficFragment annOverAndCoastTrafficFragment;
+    private ProjectsUnderSagarmalaFragment projectsUnderSagarmalaFragment;
+    private SagarmalaBeneficiariesFragment sagarmalaBeneficiariesFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
@@ -69,65 +78,70 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
     }
 
     private void fragmentPos(int loadFragAtPos) {
-        if (!isFragmentFirstLoad) {
-            if (loadFragAtPos != 9 || loadFragAtPos != 10)
-                filterDataInterface.filterParameter(requestParameter);
-        }
         switch (loadFragAtPos) {
             case 1: {
                 if (isFragmentFirstLoad) {
-                    fragment = new DailyVesselFragment();
-                    fragmentLoad(fragment);
-                }
+                    dailyVesselFragment = new DailyVesselFragment();
+                    fragmentLoad(dailyVesselFragment);
+                } else
+                    dailyVesselFragment.filterData(requestParameter);
                 break;
             }
             case 2: {
                 if (isFragmentFirstLoad) {
-                    fragment = new TrafficFragment();
-                    fragmentLoad(fragment);
-                }
+                    trafficFragment = new TrafficFragment();
+                    fragmentLoad(trafficFragment);
+                } else
+                    trafficFragment.filterData(requestParameter);
                 break;
             }
             case 3: {
                 if (isFragmentFirstLoad) {
-                    fragment = new TrafficCommoWiseFragment();
-                    fragmentLoad(fragment);
-                }
+                    trafficCommoWiseFragment = new TrafficCommoWiseFragment();
+                    fragmentLoad(trafficCommoWiseFragment);
+                } else
+                    trafficCommoWiseFragment.filterData(requestParameter);
                 break;
             }
             case 4: {
                 if (isFragmentFirstLoad) {
-                    fragment = new AvgTurnaroundTimeFragment();
-                    fragmentLoad(fragment);
-                }
+                    avgTurnaroundTimeFragment = new AvgTurnaroundTimeFragment();
+                    fragmentLoad(avgTurnaroundTimeFragment);
+                } else
+                    avgTurnaroundTimeFragment.filterData(requestParameter);
                 break;
             }
             case 5: {
                 if (isFragmentFirstLoad) {
-                    fragment = new AvgOutputPerShipBerthdayFragment();
-                    fragmentLoad(fragment);
-                }
+                    avgOutputPerShipBerthdayFragment = new AvgOutputPerShipBerthdayFragment();
+                    fragmentLoad(avgOutputPerShipBerthdayFragment);
+                } else
+                    avgOutputPerShipBerthdayFragment.filterData(requestParameter);
+
                 break;
             }
             case 6: {
                 if (isFragmentFirstLoad) {
-                    fragment = new AnnOverAndCoastTrafficFragment();
-                    fragmentLoad(fragment);
-                }
+                    annOverAndCoastTrafficFragment = new AnnOverAndCoastTrafficFragment();
+                    fragmentLoad(annOverAndCoastTrafficFragment);
+                } else
+                    annOverAndCoastTrafficFragment.filterData(requestParameter);
                 break;
             }
             case 7: {
                 if (isFragmentFirstLoad) {
-                    fragment = new ProjectsUnderSagarmalaFragment();
-                    fragmentLoad(fragment);
-                }
+                    projectsUnderSagarmalaFragment = new ProjectsUnderSagarmalaFragment();
+                    fragmentLoad(projectsUnderSagarmalaFragment);
+                } else
+                    projectsUnderSagarmalaFragment.filterData(requestParameter);
                 break;
             }
             case 8: {
                 if (isFragmentFirstLoad) {
-                    fragment = new SagarmalaBeneficiariesFragment();
-                    fragmentLoad(fragment);
-                }
+                    sagarmalaBeneficiariesFragment = new SagarmalaBeneficiariesFragment();
+                    fragmentLoad(sagarmalaBeneficiariesFragment);
+                } else
+                    sagarmalaBeneficiariesFragment.filterData(requestParameter);
                 break;
             }
             case 9: {
@@ -141,6 +155,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
                 break;
             }
         }
+
     }
 
     private void init() {
@@ -172,6 +187,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
 
     private void fragmentLoad(Fragment fragment) {
         Logger.v("fragmentLoad", "method call");
+        isFragmentFirstLoad = false;
         Bundle bundle = new Bundle();
         bundle.putSerializable(RequestParameter.class.getSimpleName(), requestParameter);
         fragment.setArguments(bundle);
@@ -180,8 +196,6 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
         fragmentTransaction.setCustomAnimations(R.anim.slide_out_up, R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_up);
         fragmentTransaction.replace(R.id.flDashBoardContainer, fragment, fragment.getClass().getSimpleName())
                 .commit();
-        filterDataInterface = (FilterDataInterface) fragment;
-        isFragmentFirstLoad = false;
     }
 
 

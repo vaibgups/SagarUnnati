@@ -13,6 +13,8 @@ public class Api {
     public static final String VALIDATE_USER = "login_service/validate_user";
     public static final String YEAR_MONTH_FINANCIAL = "front_service/get_master";
     public static final String DAILY_VESSEL_DETAIL = "daily_vessel/get_detail";
+    //    public static final String TRAFFIC = "traffic_commodity_service/get_traffic";
+    public static final String TRAFFIC = "traffic_commodity_service/get_total_traffic";
 
 
 

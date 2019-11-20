@@ -152,7 +152,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, yearStringArrayList);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         year.setAdapter(yearAdapter);
-        year.setSelection(0);
+//        year.setSelection(0);
        /* year.setAdapter(yearAdapter);
         if (requestParameter!= null){
             year.setSelection(yearStringArrayList.indexOf(requestParameter.getSelect_fy()));
@@ -181,7 +181,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         ArrayAdapter<String> adapter_option = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, monthStringArrayList);
         adapter_option.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         month.setAdapter(adapter_option);
-        month.setSelection(monthStringArrayList.indexOf(DateUtility.currentMonth()));
+//        month.setSelection(monthStringArrayList.indexOf(DateUtility.currentMonth()));
        /* if (requestParameter!= null){
             month.setSelection(monthStringArrayList.indexOf(monthStringArrayList.get(requestParameter.getSelect_month()-1)));
         }else {

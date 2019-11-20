@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.adapter.DailyVesselFrgAdapter;
-import com.example.sagarunnati.mInterface.FilterDataInterface;
 import com.example.sagarunnati.model.daily_vessel.DailyVesselResponse;
 import com.example.sagarunnati.utility.Logger;
 import com.example.sagarunnati.utility.RequestParameter;
@@ -30,7 +29,7 @@ import static com.example.sagarunnati.utility.Api.DAILY_VESSEL_DETAIL;
  * create an instance of this fragment.
  */
 public class DailyVesselFragment extends Fragment implements
-        VolleyService.InterfaceVolleyResult, FilterDataInterface {
+        VolleyService.InterfaceVolleyResult {
 
     private static final String TAG = DailyVesselFragment.class.getSimpleName();
 
@@ -41,7 +40,7 @@ public class DailyVesselFragment extends Fragment implements
     private DailyVesselFrgAdapter dailyVesselFrgAdapter;
     private VolleyService volleyService;
     private DailyVesselResponse dailyVesselResponse;
-    public FilterDataInterface filterDataInterface;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,13 +66,12 @@ public class DailyVesselFragment extends Fragment implements
 
     }
 
-   /* public void filterData(RequestParameter requestParameter) {
+    public void filterData(RequestParameter requestParameter) {
         Logger.v("FilterData called ", requestParameter.toString());
         this.requestParameter = requestParameter;
-//        Logger.i(TAG, String.valueOf(context.hashCode()));
         getDailyVesselDetails();
 
-    }*/
+    }
 
 
     @Override
@@ -99,11 +97,5 @@ public class DailyVesselFragment extends Fragment implements
         volleyService = new VolleyService(DailyVesselFragment.this, context);
         volleyService.postJsonAuthBearerRequest(DAILY_VESSEL_DETAIL, BASE_URL + DAILY_VESSEL_DETAIL, requestParameter.getHashMap());
 
-    }
-
-    @Override
-    public void filterParameter(RequestParameter requestParameter) {
-        this.requestParameter = requestParameter;
-        getDailyVesselDetails();
     }
 }

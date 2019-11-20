@@ -174,9 +174,8 @@ public class VolleyService {
         } catch (Exception e) {
             progressDialog.dismiss();
         }
-
-
     }
+
 
 
     public interface InterfaceVolleyResult {
