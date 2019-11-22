@@ -4,8 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class TrafficCommodityWiseDataItem {
 
-    @SerializedName("prev_sum_total")
-    private int prevSumTotal;
+    @SerializedName("port_name")
+    private String portName;
+
+    @SerializedName("curr_cont_tong")
+    private String currContTong;
+
+    @SerializedName("curr_fert_raw")
+    private String currFertRaw;
+
+    @SerializedName("curr_other_liquid")
+    private String currOtherLiquid;
 
     @SerializedName("curr_fert_fin")
     private String currFertFin;
@@ -25,17 +34,17 @@ public class TrafficCommodityWiseDataItem {
     @SerializedName("prev_pol")
     private String prevPol;
 
-    @SerializedName("variation")
-    private String variation;
-
-    @SerializedName("curr_cont_tong")
-    private String currContTong;
+    @SerializedName("prev_coal_cooking")
+    private String prevCoalCooking;
 
     @SerializedName("prev_fert_fin")
     private String prevFertFin;
 
-    @SerializedName("curr_other_liquid")
-    private String currOtherLiquid;
+    @SerializedName("prev_other_misc_cargo")
+    private String prevOtherMiscCargo;
+
+    @SerializedName("prev_cont_teu")
+    private String prevContTeu;
 
     @SerializedName("curr_other_misc_cargo")
     private String currOtherMiscCargo;
@@ -45,24 +54,6 @@ public class TrafficCommodityWiseDataItem {
 
     @SerializedName("prev_cont_tong")
     private String prevContTong;
-
-    @SerializedName("curr_fert_raw")
-    private String currFertRaw;
-
-    @SerializedName("prev_coal_cooking")
-    private String prevCoalCooking;
-
-    @SerializedName("port_name")
-    private String portName;
-
-    @SerializedName("prev_other_misc_cargo")
-    private String prevOtherMiscCargo;
-
-    @SerializedName("prev_cont_teu")
-    private String prevContTeu;
-
-    @SerializedName("port_id")
-    private String portId;
 
     @SerializedName("prev_coal_therm")
     private String prevCoalTherm;
@@ -76,15 +67,48 @@ public class TrafficCommodityWiseDataItem {
     @SerializedName("curr_cont_teu")
     private String currContTeu;
 
-    @SerializedName("curr_sum_total")
-    private int currSumTotal;
+    @SerializedName("prev_sum_total")
+    private String prevSumTotal;
 
-    public void setPrevSumTotal(int prevSumTotal) {
-        this.prevSumTotal = prevSumTotal;
+    @SerializedName("variation")
+    private String variation;
+
+    @SerializedName("port_id")
+    private String portId;
+
+    @SerializedName("curr_sum_total")
+    private String currSumTotal;
+
+    public void setPortName(String portName) {
+        this.portName = portName;
     }
 
-    public int getPrevSumTotal() {
-        return prevSumTotal;
+    public String getPortName() {
+        return portName;
+    }
+
+    public void setCurrContTong(String currContTong) {
+        this.currContTong = currContTong;
+    }
+
+    public String getCurrContTong() {
+        return currContTong;
+    }
+
+    public void setCurrFertRaw(String currFertRaw) {
+        this.currFertRaw = currFertRaw;
+    }
+
+    public String getCurrFertRaw() {
+        return currFertRaw;
+    }
+
+    public void setCurrOtherLiquid(String currOtherLiquid) {
+        this.currOtherLiquid = currOtherLiquid;
+    }
+
+    public String getCurrOtherLiquid() {
+        return currOtherLiquid;
     }
 
     public void setCurrFertFin(String currFertFin) {
@@ -135,20 +159,12 @@ public class TrafficCommodityWiseDataItem {
         return prevPol;
     }
 
-    public void setVariation(String variation) {
-        this.variation = variation;
+    public void setPrevCoalCooking(String prevCoalCooking) {
+        this.prevCoalCooking = prevCoalCooking;
     }
 
-    public String getVariation() {
-        return variation;
-    }
-
-    public void setCurrContTong(String currContTong) {
-        this.currContTong = currContTong;
-    }
-
-    public String getCurrContTong() {
-        return currContTong;
+    public String getPrevCoalCooking() {
+        return prevCoalCooking;
     }
 
     public void setPrevFertFin(String prevFertFin) {
@@ -159,12 +175,20 @@ public class TrafficCommodityWiseDataItem {
         return prevFertFin;
     }
 
-    public void setCurrOtherLiquid(String currOtherLiquid) {
-        this.currOtherLiquid = currOtherLiquid;
+    public void setPrevOtherMiscCargo(String prevOtherMiscCargo) {
+        this.prevOtherMiscCargo = prevOtherMiscCargo;
     }
 
-    public String getCurrOtherLiquid() {
-        return currOtherLiquid;
+    public String getPrevOtherMiscCargo() {
+        return prevOtherMiscCargo;
+    }
+
+    public void setPrevContTeu(String prevContTeu) {
+        this.prevContTeu = prevContTeu;
+    }
+
+    public String getPrevContTeu() {
+        return prevContTeu;
     }
 
     public void setCurrOtherMiscCargo(String currOtherMiscCargo) {
@@ -189,54 +213,6 @@ public class TrafficCommodityWiseDataItem {
 
     public String getPrevContTong() {
         return prevContTong;
-    }
-
-    public void setCurrFertRaw(String currFertRaw) {
-        this.currFertRaw = currFertRaw;
-    }
-
-    public String getCurrFertRaw() {
-        return currFertRaw;
-    }
-
-    public void setPrevCoalCooking(String prevCoalCooking) {
-        this.prevCoalCooking = prevCoalCooking;
-    }
-
-    public String getPrevCoalCooking() {
-        return prevCoalCooking;
-    }
-
-    public void setPortName(String portName) {
-        this.portName = portName;
-    }
-
-    public String getPortName() {
-        return portName;
-    }
-
-    public void setPrevOtherMiscCargo(String prevOtherMiscCargo) {
-        this.prevOtherMiscCargo = prevOtherMiscCargo;
-    }
-
-    public String getPrevOtherMiscCargo() {
-        return prevOtherMiscCargo;
-    }
-
-    public void setPrevContTeu(String prevContTeu) {
-        this.prevContTeu = prevContTeu;
-    }
-
-    public String getPrevContTeu() {
-        return prevContTeu;
-    }
-
-    public void setPortId(String portId) {
-        this.portId = portId;
-    }
-
-    public String getPortId() {
-        return portId;
     }
 
     public void setPrevCoalTherm(String prevCoalTherm) {
@@ -271,11 +247,35 @@ public class TrafficCommodityWiseDataItem {
         return currContTeu;
     }
 
-    public void setCurrSumTotal(int currSumTotal) {
+    public void setPrevSumTotal(String prevSumTotal) {
+        this.prevSumTotal = prevSumTotal;
+    }
+
+    public String getPrevSumTotal() {
+        return prevSumTotal;
+    }
+
+    public void setVariation(String variation) {
+        this.variation = variation;
+    }
+
+    public String getVariation() {
+        return variation;
+    }
+
+    public void setPortId(String portId) {
+        this.portId = portId;
+    }
+
+    public String getPortId() {
+        return portId;
+    }
+
+    public void setCurrSumTotal(String currSumTotal) {
         this.currSumTotal = currSumTotal;
     }
 
-    public int getCurrSumTotal() {
+    public String getCurrSumTotal() {
         return currSumTotal;
     }
 
@@ -283,30 +283,30 @@ public class TrafficCommodityWiseDataItem {
     public String toString() {
         return
                 "TrafficCommodityWiseDataItem{" +
-                        "prev_sum_total = '" + prevSumTotal + '\'' +
+                        "port_name = '" + portName + '\'' +
+                        ",curr_cont_tong = '" + currContTong + '\'' +
+                        ",curr_fert_raw = '" + currFertRaw + '\'' +
+                        ",curr_other_liquid = '" + currOtherLiquid + '\'' +
                         ",curr_fert_fin = '" + currFertFin + '\'' +
                         ",curr_pol = '" + currPol + '\'' +
                         ",curr_iron_ore = '" + currIronOre + '\'' +
                         ",curr_coal_cooking = '" + currCoalCooking + '\'' +
                         ",curr_coal_therm = '" + currCoalTherm + '\'' +
                         ",prev_pol = '" + prevPol + '\'' +
-                        ",variation = '" + variation + '\'' +
-                        ",curr_cont_tong = '" + currContTong + '\'' +
+                        ",prev_coal_cooking = '" + prevCoalCooking + '\'' +
                         ",prev_fert_fin = '" + prevFertFin + '\'' +
-                        ",curr_other_liquid = '" + currOtherLiquid + '\'' +
+                        ",prev_other_misc_cargo = '" + prevOtherMiscCargo + '\'' +
+                        ",prev_cont_teu = '" + prevContTeu + '\'' +
                         ",curr_other_misc_cargo = '" + currOtherMiscCargo + '\'' +
                         ",prev_iron_ore = '" + prevIronOre + '\'' +
                         ",prev_cont_tong = '" + prevContTong + '\'' +
-                        ",curr_fert_raw = '" + currFertRaw + '\'' +
-                        ",prev_coal_cooking = '" + prevCoalCooking + '\'' +
-                        ",port_name = '" + portName + '\'' +
-                        ",prev_other_misc_cargo = '" + prevOtherMiscCargo + '\'' +
-                        ",prev_cont_teu = '" + prevContTeu + '\'' +
-                        ",port_id = '" + portId + '\'' +
                         ",prev_coal_therm = '" + prevCoalTherm + '\'' +
                         ",prev_other_liquid = '" + prevOtherLiquid + '\'' +
                         ",prev_fert_raw = '" + prevFertRaw + '\'' +
                         ",curr_cont_teu = '" + currContTeu + '\'' +
+                        ",prev_sum_total = '" + prevSumTotal + '\'' +
+                        ",variation = '" + variation + '\'' +
+                        ",port_id = '" + portId + '\'' +
                         ",curr_sum_total = '" + currSumTotal + '\'' +
                         "}";
     }

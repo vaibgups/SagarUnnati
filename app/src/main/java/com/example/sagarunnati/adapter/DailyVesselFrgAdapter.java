@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.model.daily_vessel.DailyVesselDataItem;
 import com.example.sagarunnati.model.daily_vessel.DailyVesselResponse;
+import com.example.sagarunnati.utility.RequestParameter;
 
 import java.util.List;
 
@@ -24,10 +24,12 @@ public class DailyVesselFrgAdapter extends RecyclerView.Adapter<DailyVesselFrgAd
     private DailyVesselResponse dailyVesselResponse;
     private List<DailyVesselDataItem> dataItemList;
     private DailyVesselDataItem dataItem;
+    private RequestParameter requestParameter;
 
-    public DailyVesselFrgAdapter(Context context, DailyVesselResponse dailyVesselResponse) {
+    public DailyVesselFrgAdapter(Context context, DailyVesselResponse dailyVesselResponse, RequestParameter requestParameter) {
         this.context = context;
         this.dailyVesselResponse = dailyVesselResponse;
+        this.requestParameter = requestParameter;
         this.dataItemList = dailyVesselResponse.getData();
     }
 
@@ -50,12 +52,14 @@ public class DailyVesselFrgAdapter extends RecyclerView.Adapter<DailyVesselFrgAd
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tvDSVAdpSerialNo, tvDSVAdpPortName, tvDSVAdpNoOfVesselAtBerth, tvDSVAdpNoOfVesselAtAnchorage;
+        private TextView tvDSVAdpSerialNo, tvDSVAdpPortName, tvDSVAdpReason,
+                tvDSVAdpNoOfVesselAtBerth, tvDSVAdpNoOfVesselAtAnchorage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDSVAdpSerialNo = itemView.findViewById(R.id.tvDSVAdpSerialNo);
             tvDSVAdpPortName = itemView.findViewById(R.id.tvDSVAdpPortName);
+            tvDSVAdpReason = itemView.findViewById(R.id.tvDSVAdpReason);
             tvDSVAdpNoOfVesselAtBerth = itemView.findViewById(R.id.tvDSVAdpNoOfVesselAtBerth);
             tvDSVAdpNoOfVesselAtAnchorage = itemView.findViewById(R.id.tvDSVAdpNoOfVesselAtAnchorage);
 
@@ -63,7 +67,6 @@ public class DailyVesselFrgAdapter extends RecyclerView.Adapter<DailyVesselFrgAd
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Toast.makeText(context, ""+getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -74,6 +77,11 @@ public class DailyVesselFrgAdapter extends RecyclerView.Adapter<DailyVesselFrgAd
             tvDSVAdpPortName.setText(dataItem.getPortName());
             tvDSVAdpNoOfVesselAtBerth.setText(dataItem.getAtBerth());
             tvDSVAdpNoOfVesselAtAnchorage.setText(dataItem.getAtAnchor());
+            if (requestParameter.getAccessToken() != null) {
+                tvDSVAdpReason.setVisibility(View.VISIBLE);
+                tvDSVAdpReason.setText(dataItem.getReasonForWaiting());
+            }
+
 
         }
     }

@@ -7,6 +7,9 @@ public class LatestDate {
     @SerializedName("fin_month")
     private String finMonth;
 
+    @SerializedName("month_name")
+    private String monthName;
+
     @SerializedName("fin_year")
     private String finYear;
 
@@ -16,6 +19,14 @@ public class LatestDate {
 
     public String getFinMonth() {
         return finMonth;
+    }
+
+    public void setMonthName(String monthName) {
+        this.monthName = monthName;
+    }
+
+    public String getMonthName() {
+        return monthName;
     }
 
     public void setFinYear(String finYear) {
@@ -31,6 +42,7 @@ public class LatestDate {
         return
                 "LatestDate{" +
                         "fin_month = '" + finMonth + '\'' +
+                        ",month_name = '" + monthName + '\'' +
                         ",fin_year = '" + finYear + '\'' +
                         "}";
     }

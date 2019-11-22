@@ -80,11 +80,11 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
     private void fragmentPos(int loadFragAtPos) {
         switch (loadFragAtPos) {
             case 1: {
+                layoutYearMonthSpinner.setVisibility(View.GONE);
                 if (isFragmentFirstLoad) {
                     dailyVesselFragment = new DailyVesselFragment();
                     fragmentLoad(dailyVesselFragment);
-                } else
-                    dailyVesselFragment.filterData(requestParameter);
+                }
                 break;
             }
             case 2: {
@@ -167,12 +167,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
                 getString(LoginResponse.class.getSimpleName()), LoginResponse.class);
         layoutYearMonthSpinner = findViewById(R.id.layoutYearMonthSpinner);
 
-        if (loginResponse != null) {
-            requestParameter.setAccessToken(loginResponse.getToken());
-            layoutYearMonthSpinner.setVisibility(View.VISIBLE);
-            new SpinnerYearMonth(DashBoardClickUrlActivity.this, requestParameter);
-            isLogin = true;
-        }
+
 
         customActionBar.setToolbarHeaderName("Details Load", isLogin);
 
@@ -180,6 +175,14 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
         btnYearMonthFilter.setOnClickListener(this);
         flDashBoardContainer = findViewById(R.id.flDashBoardContainer);
         fragmentManager = getSupportFragmentManager();
+        if (loginResponse != null) {
+            requestParameter.setAccessToken(loginResponse.getToken());
+            layoutYearMonthSpinner.setVisibility(View.VISIBLE);
+            isLogin = true;
+        }
+        new SpinnerYearMonth(DashBoardClickUrlActivity.this, requestParameter);
+        fragmentPos(loadFragAtPos);
+
 
 
     }
@@ -208,8 +211,8 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
     public void selectedMonth(FinancialMonthItem financialMonthItem) {
         requestParameter.setSelect_month(Integer.parseInt(financialMonthItem.getFyMonthNum()));
         requestParameter.setSelectedMonthName(financialMonthItem.getFyMonthName());
-        if (isFragmentFirstLoad)
-            fragmentPos(loadFragAtPos);
+       /* if (isFragmentFirstLoad)
+            fragmentPos(loadFragAtPos);*/
     }
 
     @Override

@@ -331,6 +331,26 @@
                 android:gravity="center" />
 
 
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvTCWFrgVariation"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/tv_tcw_variation"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+
         </LinearLayout>
 
         <View

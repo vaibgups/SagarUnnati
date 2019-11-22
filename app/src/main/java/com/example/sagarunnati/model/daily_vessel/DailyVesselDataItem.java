@@ -4,58 +4,70 @@ import com.google.gson.annotations.SerializedName;
 
 public class DailyVesselDataItem {
 
-    @SerializedName("port_name")
-    private String portName;
+	@SerializedName("port_name")
+	private String portName;
 
-    @SerializedName("at_berth")
-    private String atBerth;
+	@SerializedName("at_berth")
+	private String atBerth;
 
-    @SerializedName("at_anchor")
-    private String atAnchor;
+	@SerializedName("reason_for_waiting")
+	private String reasonForWaiting;
 
-    @SerializedName("port_id")
-    private String portId;
+	@SerializedName("at_anchor")
+	private String atAnchor;
 
-    public void setPortName(String portName) {
-        this.portName = portName;
-    }
+	@SerializedName("port_id")
+	private String portId;
 
-    public String getPortName() {
-        return portName;
-    }
+	public void setPortName(String portName) {
+		this.portName = portName;
+	}
 
-    public void setAtBerth(String atBerth) {
-        this.atBerth = atBerth;
-    }
+	public String getPortName() {
+		return portName;
+	}
 
-    public String getAtBerth() {
-        return atBerth;
-    }
+	public void setAtBerth(String atBerth) {
+		this.atBerth = atBerth;
+	}
 
-    public void setAtAnchor(String atAnchor) {
-        this.atAnchor = atAnchor;
-    }
+	public String getAtBerth() {
+		return atBerth;
+	}
 
-    public String getAtAnchor() {
-        return atAnchor;
-    }
+	public void setReasonForWaiting(String reasonForWaiting) {
+		this.reasonForWaiting = reasonForWaiting;
+	}
 
-    public void setPortId(String portId) {
-        this.portId = portId;
-    }
+	public String getReasonForWaiting() {
+		return reasonForWaiting;
+	}
 
-    public String getPortId() {
-        return portId;
-    }
+	public void setAtAnchor(String atAnchor) {
+		this.atAnchor = atAnchor;
+	}
 
-    @Override
-    public String toString() {
-        return
-                "DailyVesselDataItem{" +
-                        "port_name = '" + portName + '\'' +
-                        ",at_berth = '" + atBerth + '\'' +
-                        ",at_anchor = '" + atAnchor + '\'' +
-                        ",port_id = '" + portId + '\'' +
-                        "}";
-    }
+	public String getAtAnchor() {
+		return atAnchor;
+	}
+
+	public void setPortId(String portId) {
+		this.portId = portId;
+	}
+
+	public String getPortId() {
+		return portId;
+	}
+
+	@Override
+	public String toString() {
+		return
+				"DailyVesselDataItem{" +
+						"port_name = '" + portName + '\'' +
+						",at_berth = '" + atBerth + '\'' +
+						",reason_for_waiting = '" + reasonForWaiting + '\'' +
+						",at_anchor = '" + atAnchor + '\'' +
+						",port_id = '" + portId + '\'' +
+						"}";
+	}
 }

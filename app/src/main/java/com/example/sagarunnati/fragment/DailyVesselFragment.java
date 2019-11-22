@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,7 @@ public class DailyVesselFragment extends Fragment implements
     private RequestParameter requestParameter;
     private View view;
     private Context context;
+    private TextView tvDSVReason;
     private RecyclerView rvDVFrg;
     private DailyVesselFrgAdapter dailyVesselFrgAdapter;
     private VolleyService volleyService;
@@ -53,25 +55,21 @@ public class DailyVesselFragment extends Fragment implements
             requestParameter = (RequestParameter) bundle.getSerializable(RequestParameter.class.getSimpleName());
             getDailyVesselDetails();
         }
-        Logger.i(TAG, String.valueOf(context.hashCode()));
-
+        if (requestParameter.getAccessToken() != null) {
+            tvDSVReason.setVisibility(View.VISIBLE);
+        }
         return view;
     }
 
 
     private void init() {
+        tvDSVReason = view.findViewById(R.id.tvDSVReason);
         rvDVFrg = view.findViewById(R.id.rvDVFrg);
         rvDVFrg.setHasFixedSize(true);
         rvDVFrg.setLayoutManager(new LinearLayoutManager(context));
 
     }
 
-    public void filterData(RequestParameter requestParameter) {
-        Logger.v("FilterData called ", requestParameter.toString());
-        this.requestParameter = requestParameter;
-        getDailyVesselDetails();
-
-    }
 
 
     @Override
@@ -80,7 +78,7 @@ public class DailyVesselFragment extends Fragment implements
         if (requestType.equals(DAILY_VESSEL_DETAIL)) {
             dailyVesselResponse = volleyService.getGson().fromJson(response, DailyVesselResponse.class);
             if (dailyVesselResponse.isStatus()) {
-                dailyVesselFrgAdapter = new DailyVesselFrgAdapter(context, dailyVesselResponse);
+                dailyVesselFrgAdapter = new DailyVesselFrgAdapter(context, dailyVesselResponse, requestParameter);
                 rvDVFrg.setAdapter(dailyVesselFrgAdapter);
             } else {
                 Toast.makeText(context, dailyVesselResponse.getMsg(), Toast.LENGTH_SHORT).show();
@@ -95,7 +93,7 @@ public class DailyVesselFragment extends Fragment implements
 
     private void getDailyVesselDetails() {
         volleyService = new VolleyService(DailyVesselFragment.this, context);
-        volleyService.postJsonAuthBearerRequest(DAILY_VESSEL_DETAIL, BASE_URL + DAILY_VESSEL_DETAIL, requestParameter.getHashMap());
+        volleyService.postDataVolley(DAILY_VESSEL_DETAIL, BASE_URL + DAILY_VESSEL_DETAIL, requestParameter);
 
     }
 }

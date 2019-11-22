@@ -1,10 +1,10 @@
-package com.example.sagarunnati.model.daily_vessel;
+package com.example.sagarunnati.model.project_under_sagarmala;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DailyVesselResponse {
+public class ProjectUnderSagarmalaResponse {
 
     @SerializedName("msg")
     private String msg;
@@ -13,10 +13,7 @@ public class DailyVesselResponse {
     private String statusCode;
 
     @SerializedName("data")
-    private List<DailyVesselDataItem> data;
-
-    @SerializedName("latest_date")
-    private String latestDate;
+    private List<ProjectUnderSagarmalaDataItem> data;
 
     @SerializedName("status")
     private boolean status;
@@ -37,20 +34,12 @@ public class DailyVesselResponse {
         return statusCode;
     }
 
-    public void setData(List<DailyVesselDataItem> data) {
+    public void setData(List<ProjectUnderSagarmalaDataItem> data) {
         this.data = data;
     }
 
-    public List<DailyVesselDataItem> getData() {
+    public List<ProjectUnderSagarmalaDataItem> getData() {
         return data;
-    }
-
-    public void setLatestDate(String latestDate) {
-        this.latestDate = latestDate;
-    }
-
-    public String getLatestDate() {
-        return latestDate;
     }
 
     public void setStatus(boolean status) {
@@ -64,11 +53,10 @@ public class DailyVesselResponse {
     @Override
     public String toString() {
         return
-                "DailyVesselResponse{" +
+                "ProjectUnderSagarmalaResponse{" +
                         "msg = '" + msg + '\'' +
                         ",status_code = '" + statusCode + '\'' +
                         ",data = '" + data + '\'' +
-                        ",latest_date = '" + latestDate + '\'' +
                         ",status = '" + status + '\'' +
                         "}";
     }

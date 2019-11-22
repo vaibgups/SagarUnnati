@@ -69,7 +69,8 @@ public class TrafficFragment extends Fragment implements VolleyService.Interface
 
     private void getDailyVesselDetails() {
         volleyService = new VolleyService(TrafficFragment.this, context);
-        volleyService.postJsonAuthBearerRequest(TRAFFIC, BASE_URL + TRAFFIC, requestParameter.getHashMap());
+//        volleyService.postJsonAuthBearerRequest(TRAFFIC, BASE_URL + TRAFFIC, requestParameter.getHashMap());
+        volleyService.postDataVolley(TRAFFIC, BASE_URL + TRAFFIC, requestParameter);
 
     }
 

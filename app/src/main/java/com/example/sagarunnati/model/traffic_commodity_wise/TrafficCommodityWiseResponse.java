@@ -9,9 +9,6 @@ public class TrafficCommodityWiseResponse {
     @SerializedName("msg")
     private String msg;
 
-    @SerializedName("data_sum")
-    private DataSum dataSum;
-
     @SerializedName("status_code")
     private String statusCode;
 
@@ -25,10 +22,10 @@ public class TrafficCommodityWiseResponse {
     private String totalVariation;
 
     @SerializedName("total_prev_traffic")
-    private int totalPrevTraffic;
+    private String totalPrevTraffic;
 
     @SerializedName("total_traffic")
-    private int totalTraffic;
+    private String totalTraffic;
 
     @SerializedName("status")
     private boolean status;
@@ -39,14 +36,6 @@ public class TrafficCommodityWiseResponse {
 
     public String getMsg() {
         return msg;
-    }
-
-    public void setDataSum(DataSum dataSum) {
-        this.dataSum = dataSum;
-    }
-
-    public DataSum getDataSum() {
-        return dataSum;
     }
 
     public void setStatusCode(String statusCode) {
@@ -81,19 +70,19 @@ public class TrafficCommodityWiseResponse {
         return totalVariation;
     }
 
-    public void setTotalPrevTraffic(int totalPrevTraffic) {
+    public void setTotalPrevTraffic(String totalPrevTraffic) {
         this.totalPrevTraffic = totalPrevTraffic;
     }
 
-    public int getTotalPrevTraffic() {
+    public String getTotalPrevTraffic() {
         return totalPrevTraffic;
     }
 
-    public void setTotalTraffic(int totalTraffic) {
+    public void setTotalTraffic(String totalTraffic) {
         this.totalTraffic = totalTraffic;
     }
 
-    public int getTotalTraffic() {
+    public String getTotalTraffic() {
         return totalTraffic;
     }
 
@@ -110,7 +99,6 @@ public class TrafficCommodityWiseResponse {
         return
                 "TrafficCommodityWiseResponse{" +
                         "msg = '" + msg + '\'' +
-                        ",data_sum = '" + dataSum + '\'' +
                         ",status_code = '" + statusCode + '\'' +
                         ",data = '" + data + '\'' +
                         ",latest_date = '" + latestDate + '\'' +

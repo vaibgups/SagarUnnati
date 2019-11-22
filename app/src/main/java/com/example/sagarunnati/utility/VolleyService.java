@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class VolleyService {
@@ -35,6 +36,7 @@ public class VolleyService {
         @Override
         public void onErrorResponse(VolleyError error) {
             progressDialog.dismiss();
+            Logger.e(requestType, error.getMessage());
             if (error instanceof NetworkError) {
                 Logger.e(requestType, error.getMessage());
 //                Toast.makeText(mContext, "No network available", Toast.LENGTH_LONG).show();
@@ -71,6 +73,11 @@ public class VolleyService {
         progressDialog.setCancelable(true);
     }
 
+    public Gson getGson() {
+        return gson;
+    }
+
+
     private void convertStringToJSONObject(Object objectParam) {
         try {
             String jsonString = gson.toJson(objectParam);
@@ -80,32 +87,6 @@ public class VolleyService {
         }
     }
 
-
-    public void postDataVolley(final String requestType, String url, final Object objectParam) {
-        try {
-            this.requestType = requestType;
-            progressDialog.show();
-            convertStringToJSONObject(objectParam);
-            JsonObjectRequest jsonObj = new JsonObjectRequest(Request.Method.POST, url, jsonObjectParam, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    progressDialog.dismiss();
-                    if (mResultCallback != null)
-                        mResultCallback.notifySuccess(requestType, response.toString());
-                }
-            }, errorListener) {
-            };
-
-            jsonObj.setRetryPolicy(new DefaultRetryPolicy(
-                    4000,
-                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            requestQueue.add(jsonObj);
-
-        } catch (Exception e) {
-            progressDialog.dismiss();
-        }
-    }
 
     public void postStringRequestWithParam(final String requestType, String url, final Map<String, String> param) {
         try {
@@ -127,6 +108,7 @@ public class VolleyService {
                     return param;
                 }
 
+
             };
             request.setShouldCache(false);
             request.setRetryPolicy(new DefaultRetryPolicy(
@@ -141,8 +123,54 @@ public class VolleyService {
     }
 
 
-    public Gson getGson() {
-        return gson;
+    public void postDataVolley(final String requestType,
+                               String url, final RequestParameter requestParameter) {
+        try {
+
+            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    progressDialog.dismiss();
+                    if (mResultCallback != null) {
+                        mResultCallback.notifySuccess(requestType, response);
+
+                    }
+                }
+            }, errorListener) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> map = new HashMap<String, String>();
+                    if (requestParameter.getSelect_month() != 0) {
+                        map.put("select_month", String.valueOf(requestParameter.getSelect_month()));
+                        map.put("select_fy", requestParameter.getSelect_fy());
+                    }
+                    return map;
+
+                }
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+
+                    Map<String, String> map = new HashMap<>();
+                    if (requestParameter.getAccessToken() != null) {
+                        map.put("Authorization", "Bearer " + requestParameter.getAccessToken());
+                    }
+                    return map;
+                }
+
+
+            };
+            request.setShouldCache(false);
+            request.setRetryPolicy(new DefaultRetryPolicy(
+                    4000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            requestQueue.add(request);
+
+
+        } catch (Exception e) {
+            progressDialog.dismiss();
+        }
     }
 
     public void postJsonAuthBearerRequest(final String requestType, String url, final Map<String, String> param) {
@@ -154,7 +182,7 @@ public class VolleyService {
                 public void onResponse(JSONObject response) {
                     if (mResultCallback != null)
                         progressDialog.dismiss();
-                        mResultCallback.notifySuccess(requestType, response.toString());
+                    mResultCallback.notifySuccess(requestType, response.toString());
                 }
             },
                     errorListener) {
@@ -175,7 +203,6 @@ public class VolleyService {
             progressDialog.dismiss();
         }
     }
-
 
 
     public interface InterfaceVolleyResult {

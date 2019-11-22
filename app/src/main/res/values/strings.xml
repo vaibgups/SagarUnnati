@@ -43,6 +43,7 @@
     <string name="tv_dvp_no_of_vessels">Number of Vessels</string>
     <string name="tv_dvp_at_berth">At Berth ( Working Vessels and Vessels Waiting for Sailing )</string>
     <string name="tv_dvp_at_anchorage">At Anchorage ( Waiting for Berthing )</string>
+    <string name="tv_dvp_reason_for_waiting">Reason For Waiting</string>
 
     <string name="tv_traffic">Traffic</string>
     <string name="tv_traffic_port">Ports</string>
@@ -66,6 +67,7 @@
     <string name="tv_tcw_teus">TEUs</string>
     <string name="tv_tcw_others_misc_carg">Other Misc. Carg</string>
     <string name="tv_tcw_total">TOTAL</string>
+    <string name="tv_tcw_variation">Variation</string>
 
     <string name="tv_att">Average Turnaround Time</string>
     <string name="tv_att_ports">PORTS</string>

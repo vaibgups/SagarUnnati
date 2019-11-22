@@ -15,6 +15,8 @@ public class Api {
     public static final String DAILY_VESSEL_DETAIL = "daily_vessel/get_detail";
     //    public static final String TRAFFIC = "traffic_commodity_service/get_traffic";
     public static final String TRAFFIC = "traffic_commodity_service/get_total_traffic";
+    public static final String TRAFFIC_COMMODITY_WISE = "traffic_commodity_service/get_traffic";
+    public static final String PROJECT_UNDER_SAGARMALA = "sagarmala_service/get_project_under_sagarmala";
 
 
 
