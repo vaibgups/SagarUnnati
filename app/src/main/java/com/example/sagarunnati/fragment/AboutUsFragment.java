@@ -59,7 +59,7 @@ public class AboutUsFragment extends Fragment implements VolleyService.Interface
 
         Map<String, String> param = new HashMap<>();
         param.put("action", ABOUT_US);
-        volleyService.postStringRequestWithParam(ABOUT_US, BASE_INFO_URL, param);
+        volleyService.postStringRequestWithOrOutParam(ABOUT_US, BASE_INFO_URL, param);
     }
 
 

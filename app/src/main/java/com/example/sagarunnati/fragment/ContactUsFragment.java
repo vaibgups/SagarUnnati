@@ -3,13 +3,11 @@ package com.example.sagarunnati.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
@@ -61,7 +59,7 @@ public class ContactUsFragment extends Fragment implements VolleyService.Interfa
 
         Map<String, String> param = new HashMap<>();
         param.put("action", CONTACT_US);
-        volleyService.postStringRequestWithParam(CONTACT_US, BASE_INFO_URL, param);
+        volleyService.postStringRequestWithOrOutParam(CONTACT_US, BASE_INFO_URL, param);
     }
 
     @Override

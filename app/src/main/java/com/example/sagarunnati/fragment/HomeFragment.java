@@ -4,22 +4,19 @@ package com.example.sagarunnati.fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
-
 import com.example.sagarunnati.adapter.HomeButtonAdapter;
 import com.example.sagarunnati.adapter.ImageAdapter;
 import com.example.sagarunnati.appliaction.MyApplication;
@@ -27,9 +24,6 @@ import com.example.sagarunnati.utility.EqualSpacingItemDecoration;
 import com.example.sagarunnati.utility.Logger;
 import com.example.sagarunnati.utility.VolleyService;
 import com.rd.PageIndicatorView;
-
-import static com.example.sagarunnati.utility.Api.BASE_URL;
-import static com.example.sagarunnati.utility.Api.GALLERY;
 
 
 /**
@@ -121,7 +115,7 @@ public class HomeFragment extends Fragment implements VolleyService.InterfaceVol
 
    /* private void getGalleryImages() {
         volleyService = new VolleyService(HomeFragment.this, context);
-        volleyService.postStringRequestWithParam(GALLERY, BASE_URL + GALLERY,null);
+        volleyService.postStringRequestWithOrOutParam(GALLERY, BASE_URL + GALLERY,null);
     }*/
 
     private void setRecyclerViewParam(RecyclerView recyclerView) {

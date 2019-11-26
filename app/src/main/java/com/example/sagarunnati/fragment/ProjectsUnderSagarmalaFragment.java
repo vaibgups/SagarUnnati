@@ -54,7 +54,7 @@ public class ProjectsUnderSagarmalaFragment extends Fragment implements VolleySe
 
     private void getProjectUnderSagarmalaDetails() {
         volleyService = new VolleyService(ProjectsUnderSagarmalaFragment.this, context);
-        volleyService.postStringRequestWithParam(PROJECT_UNDER_SAGARMALA, BASE_URL + PROJECT_UNDER_SAGARMALA, null);
+        volleyService.postStringRequestWithOrOutParam(PROJECT_UNDER_SAGARMALA, BASE_URL + PROJECT_UNDER_SAGARMALA, null);
 
     }
 
@@ -62,12 +62,6 @@ public class ProjectsUnderSagarmalaFragment extends Fragment implements VolleySe
         rvPUSFrg = view.findViewById(R.id.rvPUSFrg);
         rvPUSFrg.setHasFixedSize(true);
         rvPUSFrg.setLayoutManager(new LinearLayoutManager(context));
-    }
-
-    public void filterData(RequestParameter requestParameter) {
-        Logger.v("FilterData called ", requestParameter.toString());
-        this.requestParameter = requestParameter;
-        getProjectUnderSagarmalaDetails();
     }
 
 

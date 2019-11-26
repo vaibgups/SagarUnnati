@@ -129,22 +129,23 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
                 break;
             }
             case 7: {
+                layoutYearMonthSpinner.setVisibility(View.GONE);
                 if (isFragmentFirstLoad) {
                     projectsUnderSagarmalaFragment = new ProjectsUnderSagarmalaFragment();
                     fragmentLoad(projectsUnderSagarmalaFragment);
-                } else
-                    projectsUnderSagarmalaFragment.filterData(requestParameter);
+                }
                 break;
             }
             case 8: {
+                layoutYearMonthSpinner.setVisibility(View.GONE);
                 if (isFragmentFirstLoad) {
                     sagarmalaBeneficiariesFragment = new SagarmalaBeneficiariesFragment();
                     fragmentLoad(sagarmalaBeneficiariesFragment);
-                } else
-                    sagarmalaBeneficiariesFragment.filterData(requestParameter);
+                }
                 break;
             }
             case 9: {
+                layoutYearMonthSpinner.setVisibility(View.GONE);
                 fragment = new StatementCargoTrafFragment();
                 fragmentLoad(fragment);
                 break;

@@ -3,15 +3,14 @@ package com.example.sagarunnati.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
 import com.example.sagarunnati.R;
@@ -82,7 +81,7 @@ public class DashBoardFragment extends Fragment implements
 
     private void getDashboardData() {
         volleyService = new VolleyService(DashBoardFragment.this, context);
-        volleyService.postStringRequestWithParam(DASHBOARD_DATA, BASE_URL + DASHBOARD_DATA, null);
+        volleyService.postStringRequestWithOrOutParam(DASHBOARD_DATA, BASE_URL + DASHBOARD_DATA, null);
     }
 
     @Override

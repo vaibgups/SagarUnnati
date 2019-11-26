@@ -5,22 +5,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
         android:weightSum="2"
         android:background="@color/white"
         android:orientation="horizontal"
+        android:minHeight="@dimen/dimen_40dp"
         >
 
+
         <TextView
+            android:id="@+id/tvSbAdpTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
             android:text="@string/tv_sb_sagar_mala_program"
-            android:textSize="10sp"
-            android:gravity="center" />
-
+            android:textSize="12sp" />
 
         <View
             android:layout_width="1px"
@@ -29,13 +31,14 @@
 
 
         <TextView
+            android:id="@+id/tvSbAdpNumber"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/tv_sb_number"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:gravity="center"/>
 
 

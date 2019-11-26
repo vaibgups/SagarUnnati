@@ -163,7 +163,7 @@ public class CustomDialogBoxLogin implements View.OnClickListener,
 
     private void getContactUsContent() {
         volleyService = new VolleyService(CustomDialogBoxLogin.this, context);
-        volleyService.postStringRequestWithParam(VALIDATE_USER, BASE_URL+VALIDATE_USER, requestParameter.getHashMap());
+        volleyService.postStringRequestWithOrOutParam(VALIDATE_USER, BASE_URL + VALIDATE_USER, requestParameter.getHashMap());
     }
 
     @Override

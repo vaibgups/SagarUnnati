@@ -75,7 +75,7 @@ public class GalleryFragment extends Fragment implements VolleyService.Interface
 
     private void getGalleryImages() {
         volleyService = new VolleyService(GalleryFragment.this, context);
-        volleyService.postStringRequestWithParam(GALLERY, BASE_URL + GALLERY, null);
+        volleyService.postStringRequestWithOrOutParam(GALLERY, BASE_URL + GALLERY, null);
     }
 
     @Override

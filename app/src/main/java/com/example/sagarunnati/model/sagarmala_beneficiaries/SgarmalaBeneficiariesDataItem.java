@@ -2,7 +2,7 @@ package com.example.sagarunnati.model.sagarmala_beneficiaries;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataItem {
+public class SgarmalaBeneficiariesDataItem {
 
     @SerializedName("title")
     private String title;
@@ -29,7 +29,7 @@ public class DataItem {
     @Override
     public String toString() {
         return
-                "DataItem{" +
+                "SgarmalaBeneficiariesDataItem{" +
                         "title = '" + title + '\'' +
                         ",value = '" + value + '\'' +
                         "}";

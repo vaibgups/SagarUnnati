@@ -88,7 +88,7 @@ public class VolleyService {
     }
 
 
-    public void postStringRequestWithParam(final String requestType, String url, final Map<String, String> param) {
+    public void postStringRequestWithOrOutParam(final String requestType, String url, final Map<String, String> param) {
         try {
             this.requestType = requestType;
             progressDialog.show();

@@ -1,10 +1,9 @@
-package com.example.sagarunnati.model.sagarmala_beneficiaries;
+package com.example.sagarunnati.model.statement_cargo_traf_frg;
+
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class SgarmalaBeneficiariesResponse {
+public class StatementCargoTrafFrgResponse {
 
     @SerializedName("msg")
     private String msg;
@@ -13,7 +12,7 @@ public class SgarmalaBeneficiariesResponse {
     private String statusCode;
 
     @SerializedName("data")
-    private List<SgarmalaBeneficiariesDataItem> data;
+    private String data;
 
     @SerializedName("status")
     private boolean status;
@@ -34,11 +33,11 @@ public class SgarmalaBeneficiariesResponse {
         return statusCode;
     }
 
-    public void setData(List<SgarmalaBeneficiariesDataItem> data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public List<SgarmalaBeneficiariesDataItem> getData() {
+    public String getData() {
         return data;
     }
 
@@ -53,7 +52,7 @@ public class SgarmalaBeneficiariesResponse {
     @Override
     public String toString() {
         return
-                "SgarmalaBeneficiariesResponse{" +
+                "StatementCargoTrafFrgResponse{" +
                         "msg = '" + msg + '\'' +
                         ",status_code = '" + statusCode + '\'' +
                         ",data = '" + data + '\'' +
