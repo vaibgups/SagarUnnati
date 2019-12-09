@@ -170,7 +170,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
 
 
 
-        customActionBar.setToolbarHeaderName("Details Load", isLogin);
+
 
         btnYearMonthFilter = findViewById(R.id.btnYearMonthFilter);
         btnYearMonthFilter.setOnClickListener(this);
@@ -181,6 +181,7 @@ public class DashBoardClickUrlActivity extends AppCompatActivity implements
             layoutYearMonthSpinner.setVisibility(View.VISIBLE);
             isLogin = true;
         }
+        customActionBar.setToolbarHeaderName("Details Load", isLogin);
         new SpinnerYearMonth(DashBoardClickUrlActivity.this, requestParameter);
         fragmentPos(loadFragAtPos);
 

@@ -4,18 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.fragment.app.Fragment;
 
 import com.example.sagarunnati.R;
 import com.example.sagarunnati.activity.MainActivity;
-import com.example.sagarunnati.activity.SplashScreenActivity;
 import com.example.sagarunnati.activity.UserAfterLoginActivity;
-import com.example.sagarunnati.model.login.LoginResponse;
 
 public class CustomActionBar implements View.OnClickListener {
 
@@ -23,7 +17,7 @@ public class CustomActionBar implements View.OnClickListener {
     private View view;
     private Activity activity;
 
-    private ImageView ivDefaultActionBarHome, ivDefaultActionBarBack;
+    private ImageView ivDefaultActionBarHome, ivDefaultActionBarBack, ivDefaultActionBarLogin;
     private TextView tvDefaultActionBar, tvDefaultActionBarLogout;
     private SharedPreferenceData mSharedPreferenceData;
     public CustomActionBar(Context context) {
@@ -44,6 +38,7 @@ public class CustomActionBar implements View.OnClickListener {
         ivDefaultActionBarHome = ((Activity) context).findViewById(R.id.ivDefaultActionBarHome);
         ivDefaultActionBarHome.setOnClickListener(this);
         tvDefaultActionBarLogout = ((Activity) context).findViewById(R.id.tvDefaultActionBarLogout);
+        ivDefaultActionBarLogin = ((Activity) context).findViewById(R.id.ivDefaultActionBarLogin);
 
     }
 
@@ -70,6 +65,11 @@ public class CustomActionBar implements View.OnClickListener {
                activity.finish();
                 break;
             }
+            case R.id.ivDefaultActionBarLogin: {
+                CustomDialogBoxLogin customDialogBox = new CustomDialogBoxLogin(context);
+                customDialogBox.initCustomDialog();
+                break;
+            }
         }
     }
 
@@ -78,8 +78,12 @@ public class CustomActionBar implements View.OnClickListener {
         ivDefaultActionBarHome.setVisibility(View.GONE);
         tvDefaultActionBar.setText(toolBarHomeHeaderName);
         if (isLogin){
+            ivDefaultActionBarLogin.setVisibility(View.GONE);
             tvDefaultActionBarLogout.setVisibility(View.VISIBLE);
             tvDefaultActionBarLogout.setOnClickListener(this);
+        } else {
+            ivDefaultActionBarLogin.setVisibility(View.VISIBLE);
+            ivDefaultActionBarLogin.setOnClickListener(this);
         }
     }
 
@@ -88,8 +92,12 @@ public class CustomActionBar implements View.OnClickListener {
         ivDefaultActionBarBack.setVisibility(View.VISIBLE);
         ivDefaultActionBarHome.setVisibility(View.VISIBLE);
         if (isLogin){
+            ivDefaultActionBarLogin.setVisibility(View.GONE);
             tvDefaultActionBarLogout.setVisibility(View.VISIBLE);
             tvDefaultActionBarLogout.setOnClickListener(this);
+        } else {
+            ivDefaultActionBarLogin.setVisibility(View.VISIBLE);
+            ivDefaultActionBarLogin.setOnClickListener(this);
         }
 //        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) tvDefaultActionBar.getLayoutParams();
 //        lp.addRule(RelativeLayout.RIGHT_OF,R.id.ivDefaultActionBarBack);

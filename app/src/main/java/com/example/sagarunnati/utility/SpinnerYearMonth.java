@@ -71,7 +71,7 @@ public class SpinnerYearMonth implements VolleyService.InterfaceVolleyResult {
         month = activity.findViewById(R.id.month);
         volleyService = new VolleyService(SpinnerYearMonth.this,context);
         gson = volleyService.getGson();
-        volleyService.postJsonAuthBearerRequest(YEAR_MONTH_FINANCIAL,BASE_URL+YEAR_MONTH_FINANCIAL,requestParameter.getHashMap());
+        volleyService.postDataVolley(YEAR_MONTH_FINANCIAL, BASE_URL + YEAR_MONTH_FINANCIAL, requestParameter);
 
 
     }

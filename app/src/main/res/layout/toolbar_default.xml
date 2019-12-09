@@ -51,7 +51,9 @@
 
 
 
+
             <LinearLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -67,6 +69,15 @@
                     android:adjustViewBounds="true"
                     android:background="@drawable/ic_home_white_24dp"
                     android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/ivDefaultActionBarLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_login_outline_black_24dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:layout_marginRight="5dp" />
 
 
                 <TextView

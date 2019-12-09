@@ -2,8 +2,11 @@ package com.example.sagarunnati.utility;
 
 public class Api {
 
-    public static final String BASE_URL = "http://192.168.1.110/sagarunnati/api/mobile_services/";
-    public static final String BASE_INFO_URL = "http://192.168.1.110/sagarunnati/api/mobile_services/front_service/get_cms_data";
+    //    public static final String BASE_URL = "http://192.168.1.110/sagarunnati/api/mobile_services/";
+//    public static final String BASE_URL = "http://demoarea.1akal.in/sagarunnati/api/mobile_services/";
+    public static final String BASE_URL = "http://49.205.180.108/sagarunnati/api/mobile_services/";
+    //    public static final String BASE_INFO_URL = "http://192.168.1.110/sagarunnati/api/mobile_services/front_service/get_cms_data";
+    public static final String BASE_INFO_URL = "http://49.205.180.108/sagarunnati/api/mobile_services/front_service/get_cms_data";
 
     public static final String ABOUT_US = "about_us";
     public static final String CONTACT_US = "contact_us";

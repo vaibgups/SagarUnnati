@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,8 +21,11 @@ public class HomeButtonAdapter extends RecyclerView.Adapter<HomeButtonAdapter.Vi
     private int size;
     private HomeScreenButtonInterface homeScreenButtonInterface;
     private ArrayList<String> homeScreenButtonText = new ArrayList<String>();
-    private int [] drawableImageID = new int[]{R.drawable.about_512_512,R.drawable.gallery_500_500,R.drawable.publication_512_512,
-    R.drawable.contact_us_512_512, R.drawable.ic_dashboard_black_24dp, R.drawable.ic_login_outline_black_24dp};
+    private int[] drawableImageID = new int[]{R.drawable.about_512_512, R.drawable.gallery_500_500,
+            R.drawable.contact_us_512_512, R.drawable.ic_dashboard_black_24dp};
+//    R.drawable.contact_us_512_512, R.drawable.ic_dashboard_black_24dp, R.drawable.ic_login_outline_black_24dp};
+
+//    R.drawable.publication_512_512
 
     public HomeButtonAdapter(Context context) {
         this.context = context;
@@ -31,10 +33,10 @@ public class HomeButtonAdapter extends RecyclerView.Adapter<HomeButtonAdapter.Vi
         homeScreenButtonInterface = (HomeScreenButtonInterface) context;
         homeScreenButtonText.add("About Us");
         homeScreenButtonText.add("Gallery");
-        homeScreenButtonText.add("Publications");
+//        homeScreenButtonText.add("Publications");
         homeScreenButtonText.add("Contact Us");
         homeScreenButtonText.add("Performance");
-        homeScreenButtonText.add("Login");
+//        homeScreenButtonText.add("Login");
 
     }
 

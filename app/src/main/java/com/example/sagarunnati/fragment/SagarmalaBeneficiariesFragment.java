@@ -86,7 +86,7 @@ public class SagarmalaBeneficiariesFragment extends Fragment implements
 
     @Override
     public void notifyError(String requestType, VolleyError error) {
-        Logger.e(requestType, error.getMessage().toString());
+        Logger.e(requestType, error.getMessage());
         Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
 
     }

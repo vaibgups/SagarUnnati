@@ -21,8 +21,6 @@ import com.example.sagarunnati.fragment.HomeFragment;
 import com.example.sagarunnati.mInterface.HomeScreenButtonInterface;
 import com.example.sagarunnati.utility.ConnectivityReceiver;
 import com.example.sagarunnati.utility.CustomActionBar;
-import com.example.sagarunnati.utility.CustomDialogBox;
-import com.example.sagarunnati.utility.CustomDialogBoxLogin;
 import com.example.sagarunnati.utility.Logger;
 
 public class MainActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener,
@@ -123,12 +121,12 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                 }
                 break;
             }
-            case 2: {
+            /*case 2: {
                 CustomDialogBox customDialogBox = new CustomDialogBox(MainActivity.this);
                 customDialogBox.initCustomDialog();
                 break;
-            }
-            case 3: {
+            }*/
+            case 2: {
                 if (checkConnection()) {
                     fragment = new ContactUsFragment();
                     customActionBar.setToolbarHeaderName("Contact Us", isLogin);
@@ -139,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                 break;
             }
 
-            case 4: {
+            case 3: {
                 if (checkConnection()) {
                     fragment = new DashBoardFragment();
                     customActionBar.setToolbarHeaderName("Dash Board", isLogin);
@@ -151,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
             }
 
-            case 5: {
+          /*  case 4: {
                 if (checkConnection()) {
                     CustomDialogBoxLogin customDialogBox = new CustomDialogBoxLogin(MainActivity.this);
                     customDialogBox.initCustomDialog();
@@ -159,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                     Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            }
+            }*/
         }
     }
 

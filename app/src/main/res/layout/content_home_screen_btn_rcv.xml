@@ -7,52 +7,55 @@
     android:foreground="?android:attr/selectableItemBackground">
 
 
-
-
-    <LinearLayout
-        android:id="@+id/rl_home_screen"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        >
+        android:minHeight="200dp">
 
-        <ImageView
-            android:padding="5dp"
-            android:id="@+id/imageViewHomeScreenButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter"/>
 
-        <!--<TextView
-            android:id="@+id/textViewHomeScreen"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/rl_home_screen"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/text_color_black"
-            android:textSize="@dimen/text_size_home_screen_button" />
--->
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal">
 
-        <TextView
-            android:padding="5dp"
-            android:id="@+id/textViewHomeScreen2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:textColor="@color/text_color_black"
-            android:textSize="@dimen/text_size_home_screen_button" />
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/imageViewHomeScreenButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter" />
+
+            <!--<TextView
+                android:id="@+id/textViewHomeScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_home_screen_button" />
+    -->
+
+            <TextView
+                android:padding="5dp"
+                android:id="@+id/textViewHomeScreen2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_home_screen_button" />
 
 
+        </LinearLayout>
 
-    </LinearLayout>
 
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>
