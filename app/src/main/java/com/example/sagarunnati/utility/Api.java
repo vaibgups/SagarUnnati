@@ -22,7 +22,8 @@ public class Api {
     public static final String PROJECT_UNDER_SAGARMALA = "sagarmala_service/get_project_under_sagarmala";
     public static final String SAGARMALA_BENEFICIARIES = "sagarmala_service/get_sagarmala_beneficiaries";
 
-    public static final String DIRECTORATE_GENERAL_SHIPPING = "sagarmala_service/get_directorate_generalshiping";
+    //    public static final String DIRECTORATE_GENERAL_SHIPPING = "sagarmala_service/get_directorate_generalshiping";
+    public static final String DIRECTORATE_GENERAL_SHIPPING = "sagarmala_service/get_iwai";
 
 
 
